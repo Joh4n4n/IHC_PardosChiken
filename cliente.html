@@ -62,7 +62,7 @@
                         <span>👤</span> Cuenta
                     </button>
 
-                    <button class="btn_opcion" data-seccion="pagos">
+                    <button class="btn_opcion" data-seccion="ayuda">
                         <span>❓</span> Ayuda
                     </button>
 
@@ -78,134 +78,747 @@
                 <!-- PEDIDOS -->
                 <section id="pedidos" class="seccion activa" style="margin: 1% 1% 1% 1%">
 
+                            <!-- CARTA DE COMIDA -->
+                            <div class="carta_comida">
+
+                                <div class="encabezado_carta">
+                                    <div>
+                                        <h2>Nuestra Carta</h2>
+                                        <p>Disfruta de nuestros deliciosos platos</p>
+                                    </div>
+
+                                    <button type="button" id="btnAbrirEscaner" class="btn_escanear">
+                                        📷 Escanear QR
+                                    </button>
+                                </div>
+
+                                <!-- INFORMACIÓN DEL LOCAL Y MESA -->
+                                <div class="informacion_mesa_qr" id="informacionMesaQR">
+                                    <span>Restaurante: <strong id="nombreLocalQR">Sin identificar</strong></span>
+                                    <span>Mesa: <strong id="numeroMesaQR">Sin asignar</strong></span>
+                                </div>
+
+                                <!-- ESCÁNER -->
+                                <div id="contenedorEscaner" class="contenedor_escaner" hidden>
+
+                                    <div class="escaner_cabecera">
+                                        <h3>Escanear código QR</h3>
+                                        <button type="button" id="btnCerrarEscaner">✕</button>
+                                    </div>
+
+                                    <p>Apunta la cámara hacia el código QR de tu mesa.</p>
+
+                                    <div id="lectorQR"></div>
+
+                                    <p id="mensajeEscaner">Esperando código QR...</p>
+                                </div>
+
+                                <!-- CATEGORÍAS -->
+                                <div class="categorias_comida" id="categoriasCarta">
+                                    <button class="categoria activa" data-categoria="Todos">
+                                        Todos
+                                    </button>
+                                </div>
+
+                                <!-- PRODUCTOS DINÁMICOS -->
+                                <div class="lista_comida" id="productosCarta">
+                                    <p>Cargando productos...</p>
+                                </div>
+
+                                <!-- CARRITO -->
+                                <div class="resumen_pedido">
+                                    <div>
+                                        <h3>Mi pedido</h3>
+                                        <p><span id="cantidadCarrito">0</span> productos</p>
+                                    </div>
+
+                                    <strong id="totalCarrito">S/ 0.00</strong>
+
+                                    <button type="button" id="btnVerCarrito">
+                                        Ver pedido
+                                    </button>
+                                </div>
+
+                                <div id="panelCarrito" class="panel_carrito" hidden>
+
+                                    <div class="carrito_cabecera">
+                                        <h2>Mi pedido</h2>
+                                        <button type="button" id="btnCerrarCarrito">✕</button>
+                                    </div>
+
+                                    <div id="listaCarrito"></div>
+
+                                    <div class="carrito_total">
+                                        <strong>Total:</strong>
+                                        <strong id="totalFinal">S/ 0.00</strong>
+                                    </div>
+
+                                    <button type="button" id="btnConfirmarPedido">
+                                        Confirmar pedido
+                                    </button>
+
+                                </div>
+
+                            </div>
+                            </section>
+
                     
-                        <!-- CARTA DE COMIDA -->
-                        <div class="carta_comida">
+                        
+                    
+                </section>
 
-                            <div class="encabezado_carta">
-                                <h2>Nuestra Carta</h2>
-                                <p>Disfruta de nuestros deliciosos platos</p>
-                            </div>
+                            
+                <!-- MESAS -->
+                <section id="mesas" class="seccion mesas_seccion">
 
-                            <div class="categorias_comida">
-                                <button class="categoria activa">Todos</button>
-                                <button class="categoria">Entradas</button>
-                                <button class="categoria">Platos de fondo</button>
-                                <button class="categoria">Bebidas</button>
-                                <button class="categoria">Postres</button>
-                            </div>
+                    <div class="mesas_encabezado">
+                        <h1>Mesas del restaurante</h1>
+                        <p>Consulta la disponibilidad y elige dónde deseas reservar.</p>
+                    </div>
 
-                            <div class="lista_comida">
+                    <!-- RESUMEN -->
+                    <div class="resumen_mesas">
 
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/hamburguesa.webp" alt="hamburguesa">
-                                    <div class="info_comida">
-                                        <h3>hamburguesa</h3>
-                                        <p>Carne salteada con cebolla, tomate y papas fritas.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 25.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/hamburguesa1.jpg" alt="Ceviche">
-                                    <div class="info_comida">
-                                        <h3>hamburguesa Clásico</h3>
-                                        <p>hamburguesa de carne con papas, jamon y queso.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 28.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/palo de anticucho.jpg" alt="Anticucho">
-                                    <div class="info_comida">
-                                        <h3>Anticucho</h3>
-                                        <p>Palo de anticuchos con carne de res.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 20.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/PardosParrillero.jpg" alt="Arroz con pollo">
-                                    <div class="info_comida">
-                                        <h3>Pardos Parrillero</h3>
-                                        <p>pardos vegetales acompañado de pollo y salsa criolla.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 18.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                
-
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/Parrila_lite.jpg" alt="Pasta">
-                                    <div class="info_comida">
-                                        <h3>Parilla lite</h3>
-                                        <p>Ensalada de lechuga, tomate y zanahoria con carne.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 22.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/Carretillero.jpg" alt="Carratillero">
-                                    <div class="info_comida">
-                                        <h3>Carratillero</h3>
-                                        <p>carnes, pollo, papa, ensalada.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 15.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-
+                        <div class="resumen_mesa">
+                            <span class="mesa_punto disponible"></span>
+                            <div>
+                                <strong>4</strong>
+                                <p>Disponibles</p>
                             </div>
                         </div>
 
+                        <div class="resumen_mesa">
+                            <span class="mesa_punto ocupado"></span>
+                            <div>
+                                <strong>2</strong>
+                                <p>Ocupadas</p>
+                            </div>
+                        </div>
+
+                        <div class="resumen_mesa">
+                            <span class="mesa_punto reservada"></span>
+                            <div>
+                                <strong>2</strong>
+                                <p>Reservadas</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- LEYENDA -->
+                    <div class="leyenda_mesas">
+                        <span><i class="disponible"></i> Disponible</span>
+                        <span><i class="ocupado"></i> Ocupada</span>
+                        <span><i class="reservada"></i> Reservada</span>
+                    </div>
+
+                    <!-- MAPA DE MESAS -->
+                    <div class="mapa_mesas">
+
+                        <button class="tarjeta_mesa disponible"
+                                data-numero="01" data-capacidad="2">
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 01</strong>
+                            <small>2 personas</small>
+                            <span class="mesa_estado">Disponible</span>
+                        </button>
+
+                        <button class="tarjeta_mesa ocupado" disabled>
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 02</strong>
+                            <small>4 personas</small>
+                            <span class="mesa_estado">Ocupada</span>
+                        </button>
+
+                        <button class="tarjeta_mesa disponible"
+                                data-numero="03" data-capacidad="4">
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 03</strong>
+                            <small>4 personas</small>
+                            <span class="mesa_estado">Disponible</span>
+                        </button>
+
+                        <button class="tarjeta_mesa reservada" disabled>
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 04</strong>
+                            <small>6 personas</small>
+                            <span class="mesa_estado">Reservada</span>
+                        </button>
+
+                        <button class="tarjeta_mesa disponible"
+                                data-numero="05" data-capacidad="2">
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 05</strong>
+                            <small>2 personas</small>
+                            <span class="mesa_estado">Disponible</span>
+                        </button>
+
+                        <button class="tarjeta_mesa ocupado" disabled>
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 06</strong>
+                            <small>4 personas</small>
+                            <span class="mesa_estado">Ocupada</span>
+                        </button>
+
+                        <button class="tarjeta_mesa disponible"
+                                data-numero="07" data-capacidad="6">
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 07</strong>
+                            <small>6 personas</small>
+                            <span class="mesa_estado">Disponible</span>
+                        </button>
+
+                        <button class="tarjeta_mesa reservada" disabled>
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 08</strong>
+                            <small>4 personas</small>
+                            <span class="mesa_estado">Reservada</span>
+                        </button>
+
+                    </div>
+
+                    <!-- MESA SELECCIONADA -->
+                    <div class="mesa_seleccion" id="mesaSeleccion" hidden>
+                        <div>
+                            <h3>Mesa seleccionada</h3>
+                            <p id="detalleMesa">Mesa 01 - 2 personas</p>
+                        </div>
+
+                        <button type="button" id="btnReservarMesa">
+                            Continuar con reserva
+                        </button>
+                    </div>
 
                 </section>
 
-                <!-- MESAS -->
-                <section id="mesas" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Mesas</h1>
-                    <p>Consulta las mesas disponibles y ocupadas.</p>
+
+                <!-- RESERVA -->
+               
+                <section id="asistencia" class="seccion reserva_seccion">
+                    <div class="reserva_contenedor">
+
+                        <div class="reserva_encabezado">
+                            <h1>Reserva tu mesa</h1>
+                            <p>Completa los datos para reservar tu mesa en nuestro restaurante.</p>
+                        </div>
+
+                        <form class="formulario_reserva" id="formularioReserva">
+
+                            <div class="reserva_grupo">
+                                <label for="nombreReserva">Nombre completo</label>
+                                <input
+                                    type="text"
+                                    id="nombreReserva"
+                                    name="nombre"
+                                    placeholder="Ingresa tu nombre"
+                                    required
+                                >
+                            </div>
+
+                            <div class="reserva_grupo">
+                                <label for="telefonoReserva">Número de teléfono</label>
+                                <input
+                                    type="tel"
+                                    id="telefonoReserva"
+                                    name="telefono"
+                                    placeholder="Ej. 987654321"
+                                    pattern="[0-9]{9}"
+                                    maxlength="9"
+                                    required
+                                >
+                            </div>
+
+                            <div class="reserva_fila">
+
+                                <div class="reserva_grupo">
+                                    <label for="fechaReserva">Fecha</label>
+                                    <input
+                                        type="date"
+                                        id="fechaReserva"
+                                        name="fecha"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="reserva_grupo">
+                                    <label for="horaReserva">Hora</label>
+                                    <input
+                                        type="time"
+                                        id="horaReserva"
+                                        name="hora"
+                                        required
+                                    >
+                                </div>
+
+                            </div>
+
+                            <div class="reserva_grupo">
+                                <label for="personasReserva">Cantidad de personas</label>
+                                <select id="personasReserva" name="personas" required>
+                                    <option value="">Selecciona la cantidad</option>
+                                    <option value="1">1 persona</option>
+                                    <option value="2">2 personas</option>
+                                    <option value="3">3 personas</option>
+                                    <option value="4">4 personas</option>
+                                    <option value="5">5 personas</option>
+                                    <option value="6">6 personas</option>
+                                    <option value="7">7 personas</option>
+                                    <option value="8">8 personas</option>
+                                    <option value="9">9 personas</option>
+                                    <option value="10">10 personas</option>
+                                </select>
+                            </div>
+
+                            <div class="reserva_grupo">
+                                <label for="observacionesReserva">Observaciones</label>
+                                <textarea
+                                    id="observacionesReserva"
+                                    name="observaciones"
+                                    rows="4"
+                                    placeholder="¿Tienes alguna solicitud especial? (Opcional)"
+                                ></textarea>
+                            </div>
+
+                            <button type="submit" class="btn_reservar">
+                                Confirmar reserva
+                            </button>
+
+                        </form>
+
+                    </div>
                 </section>
 
-                <!-- ASISTENCIA -->
-                <section id="asistencia" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Reserva</h1>
-                    <p>Consulta tus reservas.</p>
+                
+                <!-- PEDIDOS DEL CLIENTE -->
+                <section id="Pedidos" class="seccion pedidos_cliente">
+
+                    <div class="pedidos_encabezado">
+                        <h1>Mis pedidos</h1>
+                        <p>Consulta tu mesa, tu reservación y los pedidos que realizaste.</p>
+                    </div>
+
+                    <!-- INFORMACIÓN DE LA MESA -->
+                    <div class="pedido_bloque">
+
+                        <div class="pedido_titulo">
+                            <h2>🍽️ Mi mesa</h2>
+                            <span class="pedido_estado" id="estadoMesaCliente">Sin asignar</span>
+                        </div>
+
+                        <div class="datos_mesa_cliente">
+                            <div>
+                                <span>Número de mesa</span>
+                                <strong id="miNumeroMesa">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Capacidad</span>
+                                <strong id="miCapacidadMesa">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Estado</span>
+                                <strong id="miEstadoMesa">Sin asignar</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- DATOS DE RESERVACIÓN -->
+                    <div class="pedido_bloque">
+
+                        <div class="pedido_titulo">
+                            <h2>📅 Datos de mi reservación</h2>
+                            <span class="pedido_estado" id="estadoReservacion">Sin reserva</span>
+                        </div>
+
+                        <div class="datos_reservacion">
+
+                            <div>
+                                <span>Nombre del cliente</span>
+                                <strong id="miNombre">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Teléfono</span>
+                                <strong id="miTelefono">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Fecha</span>
+                                <strong id="miFecha">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Hora</span>
+                                <strong id="miHora">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Personas</span>
+                                <strong id="miPersonas">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Observaciones</span>
+                                <strong id="miObservaciones">Sin observaciones</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- MIS PEDIDOS -->
+                    <div class="pedido_bloque">
+
+                        <div class="pedido_titulo">
+                            <h2>🛍️ Mis productos</h2>
+                            <span id="cantidadProductos">0 productos</span>
+                        </div>
+
+                        <div id="listaMisPedidos" class="lista_mis_pedidos">
+
+                            <div class="pedidos_vacio">
+                                <span>🛒</span>
+                                <h3>Aún no tienes pedidos</h3>
+                                <p>Cuando agregues productos de nuestra carta, aparecerán aquí.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="pedido_total">
+                            <span>Total de mi pedido</span>
+                            <strong id="totalMisPedidos">S/ 0.00</strong>
+                        </div>
+
+                    </div>
+
+                    <!-- SEGUIMIENTO -->
+                    <div class="pedido_bloque">
+
+                        <div class="pedido_titulo">
+                            <h2>🚚 Estado de mi pedido</h2>
+                            <span class="pedido_estado" id="estadoPedidoCliente">Sin pedidos</span>
+                        </div>
+
+                        <div class="seguimiento_cliente">
+                            <p id="mensajeSeguimiento">
+                                Aquí podrás consultar el avance de tus pedidos.
+                            </p>
+                        </div>
+
+                    </div>
+
                 </section>
 
-                <!-- CUENTA -->
-                <section id="cuenta" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Mi cuenta</h1>
-                    <p>Consulta tu información personal.</p>
+
+                
+                <!-- MI CUENTA -->
+                <section id="cuenta" class="seccion cuenta_seccion">
+
+                    <div class="cuenta_encabezado">
+                        <h1>Mi cuenta</h1>
+                        <p>Administra tu información personal y configuración.</p>
+                    </div>
+
+                    <!-- PERFIL -->
+                    <div class="cuenta_perfil">
+
+                        <div class="cuenta_foto">
+                            <img id="fotoPerfil"
+                                src="imagenes/Cliente.png"
+                                alt="Foto de perfil">
+
+                            <label for="cambiarFoto" class="btn_cambiar_foto">📷</label>
+                            <input type="file" id="cambiarFoto" accept="image/*" hidden>
+                        </div>
+
+                        <div class="cuenta_usuario">
+                            <h2 id="nombrePerfil">Cliente</h2>
+                            <p id="correoPerfil">cliente@gmail.com</p>
+                            <span class="cuenta_activa">Cuenta activa</span>
+                        </div>
+
+                    </div>
+
+                    <!-- INFORMACIÓN PERSONAL -->
+                    <div class="cuenta_bloque">
+
+                        <div class="cuenta_titulo">
+                            <h2>👤 Información personal</h2>
+                            <button type="button" id="btnEditarCuenta">Editar datos</button>
+                        </div>
+
+                        <form id="formularioCuenta">
+
+                            <div class="cuenta_grid">
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaNombre">Nombre completo</label>
+                                    <input type="text" id="cuentaNombre"
+                                        placeholder="Tu nombre completo" required disabled>
+                                </div>
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaTelefono">Teléfono</label>
+                                    <input type="tel" id="cuentaTelefono"
+                                        placeholder="987654321" maxlength="9"
+                                        pattern="[0-9]{9}" required disabled>
+                                </div>
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaCorreo">Correo electrónico</label>
+                                    <input type="email" id="cuentaCorreo"
+                                        placeholder="correo@gmail.com" required disabled>
+                                </div>
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaFecha">Fecha de nacimiento</label>
+                                    <input type="date" id="cuentaFecha" disabled>
+                                </div>
+
+                            </div>
+
+                            <div class="cuenta_acciones" id="accionesCuenta" hidden>
+                                <button type="button" id="btnCancelarCuenta" class="btn_cancelar">
+                                    Cancelar
+                                </button>
+
+                                <button type="submit" class="btn_guardar">
+                                    Guardar cambios
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    <!-- SEGURIDAD -->
+                    <div class="cuenta_bloque">
+
+                        <div class="cuenta_titulo">
+                            <h2>🔒 Seguridad</h2>
+                        </div>
+
+                        <div class="cuenta_opcion">
+                            <div>
+                                <strong>Cambiar contraseña</strong>
+                                <p>Actualiza tu contraseña para proteger tu cuenta.</p>
+                            </div>
+
+                            <button type="button" id="btnMostrarPassword">
+                                Cambiar
+                            </button>
+                        </div>
+
+                        <form id="formularioPassword" hidden>
+
+                            <div class="cuenta_grupo">
+                                <label for="passwordActual">Contraseña actual</label>
+                                <input type="password" id="passwordActual"
+                                    placeholder="Contraseña actual" required>
+                            </div>
+
+                            <div class="cuenta_grupo">
+                                <label for="passwordNueva">Nueva contraseña</label>
+                                <input type="password" id="passwordNueva"
+                                    placeholder="Nueva contraseña" minlength="8" required>
+                            </div>
+
+                            <div class="cuenta_grupo">
+                                <label for="passwordConfirmar">Confirmar contraseña</label>
+                                <input type="password" id="passwordConfirmar"
+                                    placeholder="Repite la contraseña" minlength="8" required>
+                            </div>
+
+                            <button type="submit" class="btn_guardar">
+                                Actualizar contraseña
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                    <!-- NOTIFICACIONES -->
+                    <div class="cuenta_bloque">
+
+                        <div class="cuenta_titulo">
+                            <h2>🔔 Notificaciones</h2>
+                        </div>
+
+                        <div class="cuenta_notificacion">
+                            <div>
+                                <strong>Notificaciones de pedidos</strong>
+                                <p>Recibir avisos sobre el estado de tus pedidos.</p>
+                            </div>
+
+                            <label class="interruptor">
+                                <input type="checkbox" id="notificarPedidos" checked>
+                                <span></span>
+                            </label>
+                        </div>
+
+                        <div class="cuenta_notificacion">
+                            <div>
+                                <strong>Notificaciones de reservas</strong>
+                                <p>Recibir avisos sobre tus reservaciones.</p>
+                            </div>
+
+                            <label class="interruptor">
+                                <input type="checkbox" id="notificarReservas" checked>
+                                <span></span>
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <!-- CERRAR SESIÓN -->
+                    <div class="cuenta_bloque cuenta_salida">
+
+                        <div>
+                            <h2>Cerrar sesión</h2>
+                            <p>Sal de tu cuenta de cliente.</p>
+                        </div>
+
+                        <button type="button" id="btnCerrarCuenta">
+                            Cerrar sesión
+                        </button>
+
+                    </div>
+
                 </section>
 
-                <!-- PAGOS -->
-                <section id="pagos" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Ayuda</h1>
-                    <p>Consulta la ayuda y soporte.</p>
-                </section>
 
+                <!-- AYUDA -->
+                <section id="ayuda" class="seccion" style="margin: 20px 10px 10px 10px;">
+                    <div class="ayuda_contenedor">
+
+        <div class="ayuda_encabezado">
+            <h2>Centro de Ayuda</h2>
+            <p>¿Necesitas ayuda? Estamos aquí para atenderte.</p>
+        </div>
+
+        <div class="ayuda_busqueda">
+            <input type="text" id="buscarAyuda"
+                placeholder="Buscar una pregunta...">
+        </div>
+
+        <div class="ayuda_categorias">
+            <button class="categoria_ayuda activa" data-categoria="todos">
+                Todas
+            </button>
+            <button class="categoria_ayuda" data-categoria="pedidos">
+                Pedidos
+            </button>
+            <button class="categoria_ayuda" data-categoria="reservas">
+                Reservas
+            </button>
+            <button class="categoria_ayuda" data-categoria="pagos">
+                Pagos
+            </button>
+            <button class="categoria_ayuda" data-categoria="qr">
+                Código QR
+            </button>
+        </div>
+
+        <div class="preguntas_ayuda">
+
+            <div class="pregunta_ayuda" data-tipo="pedidos">
+                <button class="pregunta_boton">
+                    ¿Cómo puedo realizar un pedido?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Escanea el código QR de tu mesa, selecciona los
+                    productos de la carta y agrégalos al carrito.
+                    Luego confirma tu pedido.
+                </div>
+            </div>
+
+            <div class="pregunta_ayuda" data-tipo="pedidos">
+                <button class="pregunta_boton">
+                    ¿Cómo puedo consultar mi pedido?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Ingresa a la sección Mis pedidos para consultar
+                    el estado y los detalles de tus pedidos.
+                </div>
+            </div>
+
+            <div class="pregunta_ayuda" data-tipo="reservas">
+                <button class="pregunta_boton">
+                    ¿Cómo puedo reservar una mesa?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Entra a la sección Mesas, selecciona una mesa
+                    disponible y completa el formulario de reserva.
+                </div>
+            </div>
+
+            <div class="pregunta_ayuda" data-tipo="reservas">
+                <button class="pregunta_boton">
+                    ¿Puedo cancelar una reserva?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Comunícate con el personal del restaurante para
+                    solicitar la cancelación de tu reserva.
+                </div>
+            </div>
+
+            <div class="pregunta_ayuda" data-tipo="pagos">
+                <button class="pregunta_boton">
+                    ¿Qué métodos de pago aceptan?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Consulta con el personal del restaurante los
+                    métodos de pago disponibles.
+                </div>
+            </div>
+
+            <div class="pregunta_ayuda" data-tipo="qr">
+                <button class="pregunta_boton">
+                    ¿Qué hago si no funciona el código QR?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Verifica que hayas permitido el acceso a la cámara.
+                    Si el problema continúa, solicita ayuda al personal.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ayuda_contacto">
+            <h3>¿No encontraste lo que buscabas?</h3>
+            <p>Comunícate directamente con nuestro personal.</p>
+
+            <a href="https://wa.me/51999999999"
+               target="_blank"
+               class="btn_whatsapp">
+                Contactar por WhatsApp
+            </a>
+        </div>
+
+    </div>
+                </section>
+                
             </main>
 
         </div>
     </div>
 
-    <script src="mesero.js"></script>
+    <script src="Desplasamiento.js"></script>
+    <script src="cliente.js"></script>
+
+    <!-- Biblioteca para escanear QR -->
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<!-- Integración de carta y escáner -->
+<script src="qr-carta.js"></script>
 
 </body>
 </html>
