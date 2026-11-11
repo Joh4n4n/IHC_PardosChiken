@@ -62,7 +62,7 @@
                         <span>👤</span> Cuenta
                     </button>
 
-                    <button class="btn_opcion" data-seccion="pagos">
+                    <button class="btn_opcion" data-seccion="ayuda">
                         <span>❓</span> Ayuda
                     </button>
 
@@ -78,149 +78,92 @@
                 <!-- PEDIDOS -->
                 <section id="pedidos" class="seccion activa" style="margin: 1% 1% 1% 1%">
 
-                    
-                        <!-- CARTA DE COMIDA -->
-                        <div class="carta_comida">
+                            <!-- CARTA DE COMIDA -->
+                            <div class="carta_comida">
 
-                            <div class="encabezado_carta">
-                                <h2>Nuestra Carta</h2>
-                                <p>Disfruta de nuestros deliciosos platos</p>
-                            </div>
-
-                            <div class="categorias_comida">
-                                <button class="categoria activa">Todos</button>
-                                <button class="categoria">Entradas</button>
-                                <button class="categoria">Platos de fondo</button>
-                                <button class="categoria">Bebidas</button>
-                                <button class="categoria">Postres</button>
-                            </div>
-
-
-                            <!-- PROGRESO DEL PEDIDO -->
-                            <div class="progreso_pedido">
-
-                                <div class="progreso_encabezado">
+                                <div class="encabezado_carta">
                                     <div>
-                                        <h2>Seguimiento de pedido</h2>
-                                        <p>Consulta el estado de tu pedido.</p>
+                                        <h2>Nuestra Carta</h2>
+                                        <p>Disfruta de nuestros deliciosos platos</p>
                                     </div>
-                                    <span class="estado_pedido" id="estadoPedido">
-                                        En espera
-                                    </span>
+
+                                    <button type="button" id="btnAbrirEscaner" class="btn_escanear">
+                                        📷 Escanear QR
+                                    </button>
                                 </div>
 
-                                <div class="progreso_barra">
+                                <!-- INFORMACIÓN DEL LOCAL Y MESA -->
+                                <div class="informacion_mesa_qr" id="informacionMesaQR">
+                                    <span>Restaurante: <strong id="nombreLocalQR">Sin identificar</strong></span>
+                                    <span>Mesa: <strong id="numeroMesaQR">Sin asignar</strong></span>
+                                </div>
 
-                                    <div class="progreso_linea">
-                                        <div class="progreso_linea_activa" id="lineaProgreso"></div>
+                                <!-- ESCÁNER -->
+                                <div id="contenedorEscaner" class="contenedor_escaner" hidden>
+
+                                    <div class="escaner_cabecera">
+                                        <h3>Escanear código QR</h3>
+                                        <button type="button" id="btnCerrarEscaner">✕</button>
                                     </div>
 
-                                    <div class="progreso_pasos">
+                                    <p>Apunta la cámara hacia el código QR de tu mesa.</p>
 
-                                        <div class="paso_pedido activo">
-                                            <div class="paso_icono">✓</div>
-                                            <span>Pedido realizado</span>
-                                        </div>
+                                    <div id="lectorQR"></div>
 
-                                        <div class="paso_pedido">
-                                            <div class="paso_icono">👨‍🍳</div>
-                                            <span>En preparación</span>
-                                        </div>
+                                    <p id="mensajeEscaner">Esperando código QR...</p>
+                                </div>
 
-                                        <div class="paso_pedido">
-                                            <div class="paso_icono">🍽️</div>
-                                            <span>Pedido listo</span>
-                                        </div>
+                                <!-- CATEGORÍAS -->
+                                <div class="categorias_comida" id="categoriasCarta">
+                                    <button class="categoria activa" data-categoria="Todos">
+                                        Todos
+                                    </button>
+                                </div>
 
-                                        <div class="paso_pedido">
-                                            <div class="paso_icono">✓</div>
-                                            <span>Entregado</span>
-                                        </div>
+                                <!-- PRODUCTOS DINÁMICOS -->
+                                <div class="lista_comida" id="productosCarta">
+                                    <p>Cargando productos...</p>
+                                </div>
 
+                                <!-- CARRITO -->
+                                <div class="resumen_pedido">
+                                    <div>
+                                        <h3>Mi pedido</h3>
+                                        <p><span id="cantidadCarrito">0</span> productos</p>
                                     </div>
+
+                                    <strong id="totalCarrito">S/ 0.00</strong>
+
+                                    <button type="button" id="btnVerCarrito">
+                                        Ver pedido
+                                    </button>
+                                </div>
+
+                                <div id="panelCarrito" class="panel_carrito" hidden>
+
+                                    <div class="carrito_cabecera">
+                                        <h2>Mi pedido</h2>
+                                        <button type="button" id="btnCerrarCarrito">✕</button>
+                                    </div>
+
+                                    <div id="listaCarrito"></div>
+
+                                    <div class="carrito_total">
+                                        <strong>Total:</strong>
+                                        <strong id="totalFinal">S/ 0.00</strong>
+                                    </div>
+
+                                    <button type="button" id="btnConfirmarPedido">
+                                        Confirmar pedido
+                                    </button>
 
                                 </div>
 
                             </div>
+                            </section>
 
-
-                            <div class="lista_comida">
-
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/hamburguesa.webp" alt="hamburguesa">
-                                    <div class="info_comida">
-                                        <h3>hamburguesa</h3>
-                                        <p>Carne salteada con cebolla, tomate y papas fritas.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 25.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/hamburguesa1.jpg" alt="Ceviche">
-                                    <div class="info_comida">
-                                        <h3>hamburguesa Clásico</h3>
-                                        <p>hamburguesa de carne con papas, jamon y queso.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 28.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/palo de anticucho.jpg" alt="Anticucho">
-                                    <div class="info_comida">
-                                        <h3>Anticucho</h3>
-                                        <p>Palo de anticuchos con carne de res.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 20.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/PardosParrillero.jpg" alt="Arroz con pollo">
-                                    <div class="info_comida">
-                                        <h3>Pardos Parrillero</h3>
-                                        <p>pardos vegetales acompañado de pollo y salsa criolla.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 18.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                
-
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/Parrila_lite.jpg" alt="Pasta">
-                                    <div class="info_comida">
-                                        <h3>Parilla lite</h3>
-                                        <p>Ensalada de lechuga, tomate y zanahoria con carne.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 22.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tarjeta_comida">
-                                    <img src="imagenes/Carretillero.jpg" alt="Carratillero">
-                                    <div class="info_comida">
-                                        <h3>Carratillero</h3>
-                                        <p>carnes, pollo, papa, ensalada.</p>
-                                        <div class="pie_comida">
-                                            <strong>S/ 15.00</strong>
-                                            <button class="btn_agregar">Agregar +</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
+                    
+                        
                     
                 </section>
 
@@ -746,10 +689,121 @@
                 </section>
 
 
-                <!-- PAGOS -->
-                <section id="pagos" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Ayuda</h1>
-                    <p>Consulta la ayuda y soporte.</p>
+                <!-- AYUDA -->
+                <section id="ayuda" class="seccion" style="margin: 20px 10px 10px 10px;">
+                    <div class="ayuda_contenedor">
+
+        <div class="ayuda_encabezado">
+            <h2>Centro de Ayuda</h2>
+            <p>¿Necesitas ayuda? Estamos aquí para atenderte.</p>
+        </div>
+
+        <div class="ayuda_busqueda">
+            <input type="text" id="buscarAyuda"
+                placeholder="Buscar una pregunta...">
+        </div>
+
+        <div class="ayuda_categorias">
+            <button class="categoria_ayuda activa" data-categoria="todos">
+                Todas
+            </button>
+            <button class="categoria_ayuda" data-categoria="pedidos">
+                Pedidos
+            </button>
+            <button class="categoria_ayuda" data-categoria="reservas">
+                Reservas
+            </button>
+            <button class="categoria_ayuda" data-categoria="pagos">
+                Pagos
+            </button>
+            <button class="categoria_ayuda" data-categoria="qr">
+                Código QR
+            </button>
+        </div>
+
+        <div class="preguntas_ayuda">
+
+            <div class="pregunta_ayuda" data-tipo="pedidos">
+                <button class="pregunta_boton">
+                    ¿Cómo puedo realizar un pedido?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Escanea el código QR de tu mesa, selecciona los
+                    productos de la carta y agrégalos al carrito.
+                    Luego confirma tu pedido.
+                </div>
+            </div>
+
+            <div class="pregunta_ayuda" data-tipo="pedidos">
+                <button class="pregunta_boton">
+                    ¿Cómo puedo consultar mi pedido?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Ingresa a la sección Mis pedidos para consultar
+                    el estado y los detalles de tus pedidos.
+                </div>
+            </div>
+
+            <div class="pregunta_ayuda" data-tipo="reservas">
+                <button class="pregunta_boton">
+                    ¿Cómo puedo reservar una mesa?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Entra a la sección Mesas, selecciona una mesa
+                    disponible y completa el formulario de reserva.
+                </div>
+            </div>
+
+            <div class="pregunta_ayuda" data-tipo="reservas">
+                <button class="pregunta_boton">
+                    ¿Puedo cancelar una reserva?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Comunícate con el personal del restaurante para
+                    solicitar la cancelación de tu reserva.
+                </div>
+            </div>
+
+            <div class="pregunta_ayuda" data-tipo="pagos">
+                <button class="pregunta_boton">
+                    ¿Qué métodos de pago aceptan?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Consulta con el personal del restaurante los
+                    métodos de pago disponibles.
+                </div>
+            </div>
+
+            <div class="pregunta_ayuda" data-tipo="qr">
+                <button class="pregunta_boton">
+                    ¿Qué hago si no funciona el código QR?
+                    <span>+</span>
+                </button>
+                <div class="respuesta_ayuda">
+                    Verifica que hayas permitido el acceso a la cámara.
+                    Si el problema continúa, solicita ayuda al personal.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ayuda_contacto">
+            <h3>¿No encontraste lo que buscabas?</h3>
+            <p>Comunícate directamente con nuestro personal.</p>
+
+            <a href="https://wa.me/51999999999"
+               target="_blank"
+               class="btn_whatsapp">
+                Contactar por WhatsApp
+            </a>
+        </div>
+
+    </div>
                 </section>
                 
             </main>
@@ -759,6 +813,12 @@
 
     <script src="Desplasamiento.js"></script>
     <script src="cliente.js"></script>
+
+    <!-- Biblioteca para escanear QR -->
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<!-- Integración de carta y escáner -->
+<script src="qr-carta.js"></script>
 
 </body>
 </html>
