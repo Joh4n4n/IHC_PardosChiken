@@ -1,354 +1,293 @@
 
-/* ================================
-   CONFIGURACIÓN GENERAL
-================================ */
+/* ==========================================
+   1. VARIABLES GENERALES
+========================================== */
+
+:root {
+    --principal: #39161A;
+    --secundario: #55232A;
+    --terciario: #71343D;
+    --hover: #7D3B45;
+    --acento: #A66A70;
+
+    --fondo: #F7F3F2;
+    --blanco: #FFFFFF;
+
+    --texto: #302426;
+    --texto-secundario: #77696B;
+    --borde: #E8DDDE;
+}
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-.body {
-    background-color: #f4f6fa;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #252b36;
+html {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: var(--texto);
+    background: var(--fondo);
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* ==========================================
+   2. CONTENEDOR PRINCIPAL
+========================================== */
 
 .container_principal {
     width: 100%;
     min-height: 100vh;
-}
-
-
-/* ================================
-   CABECERA
-================================ */
-
-.container_cabecera {
-    width: 100%;
-    height: 75px;
-
-    position: relative;
-
-    left: 0px;       /* POSICIÓN X */
-    top: 0px;        /* POSICIÓN Y */
-
-    display: flex;
-    align-items: center;
-
-    overflow: hidden;
-}
-
-/* Imagen del restaurante */
-.PanelMesero_restaurante {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-}
-/* ================================
-   CUERPO
-================================ */
-
-.container_cuerpo {
-    display: flex;
-    width: 100%;
-    min-height: calc(100vh - 75px);
-}
-
-/* ================================
-   BARRA LATERAL
-================================ */
-
-/* BARRA LATERAL */
-.container_barra_opciones {
-    width: 230px;
-    min-width: 230px;
-    height: 1000px;
-
-    background-color: #39161A;
-    color: white;
-    padding: 20px 12px;
-
     display: flex;
     flex-direction: column;
 }
 
+/* ==========================================
+   3. CABECERA
+========================================== */
 
-/* PERFIL */
+.container_principal > .container_cabecera {
+    width: 100%;
+    height: 85px;
+    min-height: 85px;
+    position: relative;
+    overflow: hidden;
+    background: var(--principal);
+    display: flex;
+    align-items: center;
+}
+
+/* El header interno ocupa toda la cabecera */
+
+.container_principal > .container_cabecera > header {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.PanelCliente_restaurante {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ==========================================
+   4. PERFIL DEL CLIENTE
+========================================== */
 
 .perfil {
-    text-align: center;
-    padding: 15px 5px 25px;
-    border-bottom: 1px solid #344563;
+    position: absolute;
+    top: 50%;
+    right: 22px;
+    transform: translateY(-50%);
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 7px 14px;
+    border-radius: 12px;
+
+    background: rgba(57, 22, 26, 0.90);
+    color: var(--blanco);
 }
 
 .perfil_icono {
-    width: 60px;
-    height: 60px;
-
-    background-color: #5c242a;
-    color: white;
-
-    border-radius: 50%;
+    width: 43px;
+    height: 43px;
+    min-width: 43px;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
-    font-size: 25px;
+    border-radius: 50%;
+    background: var(--terciario);
+
+    color: white;
+    font-size: 20px;
     font-weight: bold;
-
-    margin: 0 auto 10px;
 }
 
 .perfil h2 {
-    margin: 5px 0;
-    font-size: 17px;
+    font-size: 14px;
+    margin: 0;
+    color: white;
 }
 
 .perfil p {
-    margin: 5px 0;
-    font-size: 12px;
-    color: #b3c4df;
+    font-size: 11px;
+    margin-top: 4px;
+    color: #F2E8E9;
 }
 
-/* ================================
-   MENÚ DE OPCIONES
-================================ */
+/* ==========================================
+   5. CUERPO PRINCIPAL
+========================================== */
 
-.menu_opciones {
+.container_cuerpo {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    min-height: calc(100vh - 85px);
+    align-items: stretch;
+}
+
+/* ==========================================
+   6. BARRA LATERAL
+========================================== */
+
+.container_barra_opciones {
+    width: 230px;
+    min-width: 230px;
+    flex-shrink: 0;
+
+    min-height: calc(100vh - 85px);
+
     display: flex;
     flex-direction: column;
-    gap: 18px;
-    margin-top: 25px;
-    ;
+
+    padding: 20px 12px;
+
+    background: var(--principal);
+    color: white;
+}
+
+/* ==========================================
+   7. MENÚ DE OPCIONES
+========================================== */
+
+.menu_opciones {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
 }
 
 .btn_opcion {
     width: 100%;
-    padding: 13px 15px;
-
-    background-color: transparent;
-    color: #dce6f5;
-
-    margin: 0;
-    border: none;
-    border-radius: 7px;
+    min-height: 45px;
 
     display: flex;
     align-items: center;
-    gap: 13px;
+    gap: 12px;
 
-    font-size: 15px;
+    padding: 12px 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #F2E8E9;
+
+    font-size: 14px;
     text-align: left;
 
-    cursor: pointer;
-    transition: all 0.25s ease;
+    transition: background 0.2s ease,
+                color 0.2s ease;
 }
 
 .btn_opcion span {
-    font-size: 19px;
-    width: 23px;
-    text-align: center;
+    width: 24px;
     flex-shrink: 0;
+    text-align: center;
+    font-size: 19px;
 }
-
-/* HOVER */
 
 .btn_opcion:hover {
-    background-color: #5a242a;
+    background: var(--secundario);
     color: white;
-    padding-left: 20px;
 }
 
-/* BOTÓN SELECCIONADO */
 
-.btn_opcion.activo {
-    background-color: #722b33;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 3px 8px #10213b;
-}
 
-/* ================================
-   CERRAR SESIÓN
-================================ */
+/* ==========================================
+   8. CERRAR SESIÓN
+========================================== */
 
 .btn_cerrar {
+    width: 100%;
     margin-top: auto;
     padding: 13px;
 
-    background-color: #6e2c34;
+    border: none;
+    border-radius: 8px;
+
+    background: var(--secundario);
     color: white;
 
-    border: none;
-    border-radius: 7px;
-
-    cursor: pointer;
-    transition: 0.25s;
+    font-size: 13px;
+    transition: 0.2s;
 }
 
 .btn_cerrar:hover {
-    background-color: #d64545;
+    background: #A13F49;
 }
 
-/* ================================
-   CONTENIDO
-================================ */
+/* ==========================================
+   9. CONTENIDO PRINCIPAL
+========================================== */
 
 .container_contenido {
     flex: 1;
     min-width: 0;
-    padding: 0;
-    position: relative;
-   
+    width: 100%;
+
+    padding: 25px;
+
+    background: var(--fondo);
 }
 
 .seccion {
     display: none;
+    width: 100%;
+    min-width: 0;
     animation: aparecer 0.3s ease;
 }
 
 .seccion.activa {
     display: block;
-    
-    
 }
 
 .seccion h1 {
+    margin-bottom: 10px;
+    color: var(--principal);
     font-size: 25px;
-    margin: 0 0 10px;
-    color: #7c232e;
 }
 
 .seccion p {
-    color: #697586;
+    color: var(--texto-secundario);
     font-size: 14px;
 }
 
-/* ================================
-   PEDIDOS
-================================ */
 
-.encabezado_pedidos {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.encabezado_pedidos h1 {
-    margin: 0 0 15px;
-}
 
-.filtros_pedidos {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 18px;
-    overflow-x: auto;
-    padding-bottom: 5px;
-}
 
-.filtro {
-    padding: 9px 13px;
-    border: 1px solid #e0e4eb;
-    background-color: white;
-    border-radius: 10px;
-    white-space: nowrap;
-    cursor: pointer;
-    font-size: 12px;
-    transition: 0.2s;
-}
-
-.filtro:hover {
-    background-color: #e8f1ff;
-}
-
-.filtro.activo {
-    background-color: #7c2b35;
-    color: white;
-    border-color: #752a33;
-}
-
-.lista_pedidos {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.tarjeta_pedido {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px;
-
-    background-color: white;
-    border-radius: 13px;
-
-    box-shadow: 0 2px 7px #0000000c;
-    min-width: 0;
-}
-
-.imagen_plato {
-    width: 55px;
-    height: 55px;
-    flex-shrink: 0;
-
-    background-color: #eee;
-    border-radius: 10px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 27px;
-}
-
-.datos_pedido {
-    flex: 1;
-    min-width: 0;
-
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.datos_pedido strong {
-    font-size: 14px;
-}
-
-.datos_pedido span {
-    font-size: 12px;
-    color: #555;
-}
-
-.estado {
-    padding: 8px 12px;
-    border-radius: 20px;
-
-    font-size: 11px;
-    font-weight: bold;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-.pendiente {
-    background-color: #fff0d8;
-    color: #e87519;
-}
-
-.preparacion {
-    background-color: #dcecff;
-    color: #1766bd;
-}
-
-.listo {
-    background-color: #dff4df;
-    color: #25803a;
-}
-
-/* ================================
-   ANIMACIÓN
-================================ */
+/* ==========================================
+   15. ANIMACIÓN
+========================================== */
 
 @keyframes aparecer {
     from {
@@ -362,193 +301,556 @@
     }
 }
 
-/* ================================
-   RESPONSIVE - CELULARES
-================================ */
+/* ==========================================
+   16. TABLETS
+========================================== */
+
+@media screen and (max-width: 900px) {
+
+    .container_barra_opciones {
+        width: 190px;
+        min-width: 190px;
+    }
+
+    .container_contenido {
+        padding: 20px 15px;
+    }
+
+   
+}
+
+/* ==========================================
+   17. CELULARES
+========================================== */
 
 @media screen and (max-width: 650px) {
 
-    .container_principal {
-        height: 100dvh;
-        min-height: 100dvh;
+    .container_principal > .container_cabecera {
+        height: 70px;
+        min-height: 70px;
     }
-
-    /* CABECERA */
-
-    .container_cabecera {
-    display: none;
-}
-
-    /* DISTRIBUCIÓN */
-
-    .container_cuerpo {
-        display: flex;
-        flex-direction: row;
-
-        height: 100%;
-        min-height: 0;
-    }
-
-    /* MENÚ LATERAL */
-
-    .container_barra_opciones {
-        width: 130px;
-        min-width: 130px;
-
-        height: 100%;
-        padding: 12px 7px;
-
-        background-color: #10213b;
-    }
-
-    /* PERFIL */
 
     .perfil {
-        display: block;
-        padding: 12px 2px 18px;
+        right: 10px;
+        gap: 7px;
+        padding: 5px 9px;
     }
 
     .perfil_icono {
-        width: 43px;
-        height: 43px;
-        font-size: 20px;
+        width: 35px;
+        height: 35px;
+        min-width: 35px;
+        font-size: 16px;
     }
 
     .perfil h2 {
-        font-size: 15px;
+        font-size: 12px;
     }
 
     .perfil p {
-        display: none;
+        font-size: 9px;
     }
 
-    /* BOTONES */
+    .container_cuerpo {
+        min-height: calc(100dvh - 70px);
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* Menú compacto que conserva su interacción */
+
+    .container_barra_opciones {
+        width: 125px;
+        min-width: 125px;
+        min-height: calc(100dvh - 70px);
+
+        padding: 12px 7px;
+    }
 
     .menu_opciones {
-        display: flex;
-        flex-direction: column;
-
-        gap: 10px;
-        margin-top: 15px;
-        width: 100%;
+        gap: 9px;
+        margin-top: 12px;
     }
 
     .btn_opcion {
-        width: 100%;
-        min-height: 42px;
-
+        min-height: 43px;
         padding: 9px 6px;
-
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-
-        gap: 8px;
-        font-size: 12px;
-        white-space: nowrap;
+        gap: 6px;
+        font-size: 11px;
         border-radius: 7px;
     }
 
     .btn_opcion span {
-        font-size: 17px;
-        width: 20px;
+        width: 19px;
+        font-size: 16px;
     }
 
     .btn_opcion:hover {
-        padding-left: 9px;
+        padding-left: 6px;
     }
-
-    .btn_opcion.activo {
-        background-color: #1684f8;
-        box-shadow: none;
-    }
-
-    /* CERRAR SESIÓN */
 
     .btn_cerrar {
-        display: block;
-        margin-top: auto;
-        font-size: 11px;
-        padding: 11px 5px;
+        padding: 10px 4px;
+        font-size: 10px;
     }
 
-    /* CONTENIDO */
+    /* Contenido */
 
     .container_contenido {
         flex: 1;
         min-width: 0;
-        height: 100%;
+        padding: 15px 9px;
+    }
 
-        overflow-y: auto;
-
-        padding: 18px 10px;
-        background-color: #f4f6fa;
+    .seccion {
+        width: 100%;
     }
 
     .seccion h1 {
         font-size: 20px;
     }
 
-    /* FILTROS */
-
-    .filtros_pedidos {
-        gap: 5px;
-        margin-bottom: 13px;
+    .seccion p {
+        font-size: 12px;
     }
 
-    .filtro {
-        padding: 8px 10px;
-        font-size: 11px;
+
+}
+
+/* ==========================================
+   18. CELULARES PEQUEÑOS
+========================================== */
+
+@media screen and (max-width: 380px) {
+
+    .container_barra_opciones {
+        width: 105px;
+        min-width: 105px;
+        padding: 10px 5px;
     }
 
-    /* TARJETAS */
-
-    .tarjeta_pedido {
-        gap: 7px;
-        padding: 9px;
-    }
-
-    .imagen_plato {
-        width: 43px;
-        height: 43px;
-        font-size: 22px;
-    }
-
-    .datos_pedido strong {
-        font-size: 11px;
-    }
-
-    .datos_pedido span {
+    .btn_opcion {
+        gap: 4px;
+        padding: 8px 4px;
         font-size: 10px;
     }
 
-    .estado {
-        padding: 7px 8px;
-        font-size: 9px;
-    }
-}
-
-/* CELULARES MUY PEQUEÑOS */
-
-@media screen and (max-width: 360px) {
-
-    .container_barra_opciones {
-        width: 112px;
-        min-width: 112px;
+    .btn_opcion span {
+        width: 17px;
+        font-size: 14px;
     }
 
     .container_contenido {
-        padding: 15px 7px;
+        padding: 12px 6px;
     }
 
-    .estado {
-        padding: 6px;
+    .perfil {
+        right: 6px;
+    }
+
+    .perfil h2 {
+        font-size: 11px;
+    }
+
+    .perfil p {
         font-size: 8px;
     }
 
-    .filtro {
-        padding: 7px 8px;
+  
+
+
+
+    
+}
+
+/* ==========================================
+   19. PANTALLAS GRANDES
+========================================== */
+
+@media screen and (min-width: 1400px) {
+
+    .container_barra_opciones {
+        width: 260px;
+        min-width: 260px;
+    }
+
+    .container_contenido {
+        padding: 35px;
+    }
+
+}
+
+/* ==========================================
+   CELULAR: CABECERA ADAPTABLE
+========================================== */
+
+@media screen and (max-width: 650px) {
+
+    /* Imagen de cabecera */
+    .container_principal > .container_cabecera {
+        width: 100%;
+        height: 100px;
+        min-height: 100px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .container_principal > .container_cabecera > header {
+        width: 100%;
+        height: 100%;
+    }
+
+    .PanelCliente_restaurante {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* Ocultar nombre y descripción */
+    .perfil h2,
+    .perfil p {
+        display: none;
+    }
+
+    /* Mostrar solamente el círculo */
+    .perfil {
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        padding: 0;
+        background: transparent;
+        border-radius: 50%;
+    }
+
+    .perfil_icono {
+        width: 43px;
+        height: 43px;
+        min-width: 43px;
+        font-size: 18px;
+        border: 2px solid white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    /* Mantener el menú lateral y el contenido */
+    .container_cuerpo {
+        min-height: calc(100dvh - 100px);
+    }
+
+    .container_barra_opciones {
+        min-height: calc(100dvh - 100px);
+    }
+}
+
+/* ==========================================
+   CELULARES PEQUEÑOS
+========================================== */
+
+@media screen and (max-width: 380px) {
+
+    .container_principal > .container_cabecera {
+        height: 85px;
+        min-height: 85px;
+    }
+
+    .perfil {
+        right: 8px;
+    }
+
+    .perfil_icono {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+
+    .PanelCliente_restaurante {
+        object-position: center;
+    }
+
+    .container_cuerpo {
+        min-height: calc(100dvh - 85px);
+    }
+
+    .container_barra_opciones {
+        min-height: calc(100dvh - 85px);
+    }
+}
+
+/* ==========================================
+   20. CARTA DE COMIDA
+========================================== */
+
+.carta_comida {
+    width: 100%;
+    min-width: 0;
+    padding: 5px 0;
+}
+
+/* ENCABEZADO */
+
+.encabezado_carta {
+    margin-bottom: 18px;
+}
+
+.encabezado_carta h2 {
+    color: var(--principal);
+    font-size: 24px;
+    margin-bottom: 7px;
+}
+
+.encabezado_carta p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+/* CATEGORÍAS */
+
+.categorias_comida {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 5px 0 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.categoria {
+    flex-shrink: 0;
+    padding: 10px 17px;
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    background: var(--blanco);
+    color: var(--principal);
+    font-size: 13px;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.categoria:hover,
+.categoria.activa {
+    background: var(--principal);
+    color: var(--blanco);
+    border-color: var(--principal);
+}
+
+/* CONTENEDOR DE PLATOS */
+
+.lista_comida {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* TARJETA DE COMIDA */
+
+.tarjeta_comida {
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 13px;
+    box-shadow: 0 3px 9px rgba(57, 22, 26, 0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta_comida:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(57, 22, 26, 0.12);
+}
+
+/* FOTOGRAFÍA DEL PLATO */
+
+.tarjeta_comida img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* INFORMACIÓN */
+
+.info_comida {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 15px;
+}
+
+.info_comida h3 {
+    color: var(--principal);
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.info_comida p {
+    color: var(--texto-secundario);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    min-height: 40px;
+}
+
+/* PRECIO Y BOTÓN */
+
+.pie_comida {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.pie_comida strong {
+    color: var(--terciario);
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+.btn_agregar {
+    padding: 10px 13px;
+    border: none;
+    border-radius: 8px;
+    background: var(--principal);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn_agregar:hover {
+    background: var(--hover);
+}
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media screen and (max-width: 900px) {
+
+    .lista_comida {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .tarjeta_comida img {
+        height: 160px;
+    }
+}
+
+/* ==========================================
+   CELULARES
+========================================== */
+
+@media screen and (max-width: 650px) {
+
+    .carta_comida {
+        padding: 5px 0;
+    }
+
+    .encabezado_carta h2 {
+        font-size: 20px;
+    }
+
+    .encabezado_carta p {
+        font-size: 12px;
+    }
+
+    .categorias_comida {
+        gap: 7px;
+        margin-bottom: 12px;
+    }
+
+    .categoria {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    .lista_comida {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .tarjeta_comida {
+        border-radius: 10px;
+    }
+
+    .tarjeta_comida img {
+        height: 115px;
+    }
+
+    .info_comida {
+        padding: 9px;
+    }
+
+    .info_comida h3 {
+        font-size: 13px;
+        line-height: 1.3;
+    }
+
+    .info_comida p {
+        font-size: 11px;
+        line-height: 1.4;
+        min-height: 48px;
+        margin-bottom: 10px;
+    }
+
+    .pie_comida {
+        flex-wrap: wrap;
+        gap: 7px;
+    }
+
+    .pie_comida strong {
+        font-size: 14px;
+    }
+
+    .btn_agregar {
+        width: 100%;
+        padding: 9px 5px;
+        font-size: 11px;
+    }
+}
+
+/* ==========================================
+   CELULARES PEQUEÑOS
+========================================== */
+
+@media screen and (max-width: 380px) {
+
+    .lista_comida {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .tarjeta_comida img {
+        height: 100px;
+    }
+
+    .info_comida {
+        padding: 7px;
+    }
+
+    .info_comida h3 {
+        font-size: 12px;
+    }
+
+    .info_comida p {
         font-size: 10px;
+        min-height: 55px;
+    }
+
+    .pie_comida strong {
+        font-size: 12px;
+    }
+
+    .btn_agregar {
+        font-size: 10px;
+        padding: 8px 4px;
     }
 }

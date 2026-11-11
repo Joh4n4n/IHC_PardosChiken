@@ -18,13 +18,13 @@
 
             <header  class="container_cabecera" >
                 <img src="imagenes/Cliente.png"
-                alt="PanelMesero_restaurante"
-                CLASS="PanelMesero_restaurante">
+                alt="PanelCliente_restaurante"
+                class="PanelCliente_restaurante">
             </header>
             
             <div class="perfil">
-                    <div class="perfil_icono">M</div>
-                    <h2>Mesero</h2>
+                    <div class="perfil_icono">C</div>
+                    <h2>Cliente</h2>
                     <p>Panel de atención</p>
             </div>
             
@@ -41,24 +41,28 @@
                 <nav class="menu_opciones">
 
 
-                    <button class="btn_opcion activo" data-seccion="pedidos">
-                        <span>▣</span> Pedidos
+                    <button class="btn_opcion" data-seccion="pedidos">
+                        <span>🏠</span> inicio
                     </button>
 
                     <button class="btn_opcion" data-seccion="mesas">
-                        <span>▦</span> Mesas
+                        <span>🍽️</span> Mesas
                     </button>
 
                     <button class="btn_opcion" data-seccion="asistencia">
-                        <span>◷</span> Asistencia
+                        <span> 📅</span> Reserva
+                    </button>
+
+                    <button class="btn_opcion" data-seccion="Pedidos">
+                        <span>📦</span> Pedidos
                     </button>
 
                     <button class="btn_opcion" data-seccion="cuenta">
-                        <span>♙</span> Cuenta
+                        <span>👤</span> Cuenta
                     </button>
 
                     <button class="btn_opcion" data-seccion="pagos">
-                        <span>▤</span> Pagos
+                        <span>❓</span> Ayuda
                     </button>
 
                 </nav>
@@ -70,69 +74,103 @@
             <!-- CONTENIDO PRINCIPAL -->
             <main class="container_contenido">
 
-                
-                   
-                
-
                 <!-- PEDIDOS -->
                 <section id="pedidos" class="seccion activa" style="margin: 20px 10px 10px 10px;">
 
-                    <div class="encabezado_pedidos">
-                        <h1>Pedidos</h1>
-                        <span>♟</span>
-                    </div>
+                    
+                        <!-- CARTA DE COMIDA -->
+                        <div class="carta_comida">
 
-                    <!-- FILTROS -->
-                    <div class="filtros_pedidos">
-                        <button class="filtro activo">Todos</button>
-                        <button class="filtro">Pendientes</button>
-                        <button class="filtro">En preparación</button>
-                        <button class="filtro">Listos</button>
-                    </div>
-
-                    <!-- LISTA DE PEDIDOS -->
-                    <div class="lista_pedidos">
-
-                        <div class="tarjeta_pedido">
-                            <div class="imagen_plato">🍝</div>
-
-                            <div class="datos_pedido">
-                                <strong>#001 - Mesa 1</strong>
-                                <span>2 platos</span>
+                            <div class="encabezado_carta">
+                                <h2>Nuestra Carta</h2>
+                                <p>Disfruta de nuestros deliciosos platos</p>
                             </div>
 
-                            <span class="estado pendiente">
-                                Pendiente
-                            </span>
-                        </div>
-
-                        <div class="tarjeta_pedido">
-                            <div class="imagen_plato">🥗</div>
-
-                            <div class="datos_pedido">
-                                <strong>#002 - Mesa 3</strong>
-                                <span>1 plato</span>
+                            <div class="categorias_comida">
+                                <button class="categoria activa">Todos</button>
+                                <button class="categoria">Entradas</button>
+                                <button class="categoria">Platos de fondo</button>
+                                <button class="categoria">Bebidas</button>
+                                <button class="categoria">Postres</button>
                             </div>
 
-                            <span class="estado preparacion">
-                                En preparación
-                            </span>
-                        </div>
+                            <div class="lista_comida">
 
-                        <div class="tarjeta_pedido">
-                            <div class="imagen_plato">🍲</div>
+                                <div class="tarjeta_comida">
+                                    <img src="imagenes/hamburguesa.webp" alt="hamburguesa">
+                                    <div class="info_comida">
+                                        <h3>hamburguesa</h3>
+                                        <p>Carne salteada con cebolla, tomate y papas fritas.</p>
+                                        <div class="pie_comida">
+                                            <strong>S/ 25.00</strong>
+                                            <button class="btn_agregar">Agregar +</button>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <div class="datos_pedido">
-                                <strong>#003 - Mesa 5</strong>
-                                <span>3 platos</span>
+                                <div class="tarjeta_comida">
+                                    <img src="imagenes/hamburguesa1.jpg" alt="Ceviche">
+                                    <div class="info_comida">
+                                        <h3>hamburguesa Clásico</h3>
+                                        <p>hamburguesa de carne con papas, jamon y queso.</p>
+                                        <div class="pie_comida">
+                                            <strong>S/ 28.00</strong>
+                                            <button class="btn_agregar">Agregar +</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tarjeta_comida">
+                                    <img src="imagenes/PardosParrillero.jpg" alt="Arroz con pollo">
+                                    <div class="info_comida">
+                                        <h3>Pardos Parrillero</h3>
+                                        <p>pardos vegetales acompañado de pollo y salsa criolla.</p>
+                                        <div class="pie_comida">
+                                            <strong>S/ 18.00</strong>
+                                            <button class="btn_agregar">Agregar +</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tarjeta_comida">
+                                    <img src="imagenes/aji_de_gallina.jpg" alt="Ají de gallina">
+                                    <div class="info_comida">
+                                        <h3>Ají de Gallina</h3>
+                                        <p>Pollo deshilachado en crema de ají amarillo.</p>
+                                        <div class="pie_comida">
+                                            <strong>S/ 20.00</strong>
+                                            <button class="btn_agregar">Agregar +</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tarjeta_comida">
+                                    <img src="imagenes/pasta.jpg" alt="Pasta">
+                                    <div class="info_comida">
+                                        <h3>Tallarines a la Boloñesa</h3>
+                                        <p>Pasta con salsa de carne y tomate.</p>
+                                        <div class="pie_comida">
+                                            <strong>S/ 22.00</strong>
+                                            <button class="btn_agregar">Agregar +</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tarjeta_comida">
+                                    <img src="imagenes/causa.jpg" alt="Causa limeña">
+                                    <div class="info_comida">
+                                        <h3>Causa Limeña</h3>
+                                        <p>Papa amarilla rellena de pollo y mayonesa.</p>
+                                        <div class="pie_comida">
+                                            <strong>S/ 15.00</strong>
+                                            <button class="btn_agregar">Agregar +</button>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-
-                            <span class="estado listo">
-                                Listo
-                            </span>
                         </div>
 
-                    </div>
 
                 </section>
 
@@ -144,8 +182,8 @@
 
                 <!-- ASISTENCIA -->
                 <section id="asistencia" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Asistencia</h1>
-                    <p>Consulta tu asistencia y horario.</p>
+                    <h1>Reserva</h1>
+                    <p>Consulta tus reservas.</p>
                 </section>
 
                 <!-- CUENTA -->
@@ -156,8 +194,8 @@
 
                 <!-- PAGOS -->
                 <section id="pagos" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Pagos</h1>
-                    <p>Consulta los pagos de los pedidos.</p>
+                    <h1>Ayuda</h1>
+                    <p>Consulta la ayuda y soporte.</p>
                 </section>
 
             </main>
