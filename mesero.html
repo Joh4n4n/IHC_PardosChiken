@@ -4,332 +4,1140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Panel Mesero</title>
+
     <link rel="stylesheet" href="mesero.css">
 </head>
+
 <body class="body">
 
-   
-       
-    <div class="container_principal">
+<div class="container_principal">
 
-        <!-- CABECERA -->
-       
-        
-        <div class="container_cuerpo">
+    <div class="container_cuerpo">
 
-            <!-- BARRA LATERAL -->
-            <aside class="container_barra_opciones">
+        <!-- BARRA LATERAL -->
+        <aside class="container_barra_opciones">
 
-                <div class="perfil">
-                    <div class="perfil_icono">M</div>
-                    <h2>Mesero</h2>
-                    <p>Panel de atención</p>
+            <div class="perfil">
+                <div class="perfil_icono">M</div>
+                <h2>Mesero</h2>
+                <p>Panel de atención</p>
+            </div>
+
+            <nav class="menu_opciones">
+
+                <button class="btn_opcion " data-seccion="pedidos">
+                    <span>▣</span> Pedidos
+                </button>
+
+                <button class="btn_opcion" data-seccion="mesas">
+                    <span>▦</span> Mesas
+                </button>
+
+                <button class="btn_opcion" data-seccion="carta">
+                    <span>☷</span> Administrar carta
+                </button>
+
+                <button class="btn_opcion" data-seccion="asistencia">
+                    <span>◷</span> Asistencia
+                </button>
+
+                <button class="btn_opcion" data-seccion="cuenta">
+                    <span>♙</span> Cuenta
+                </button>
+
+                <button class="btn_opcion" data-seccion="pagos">
+                    <span>▤</span> Pagos
+                </button>
+
+            </nav>
+
+            <button class="btn_cerrar" type="button">
+                Cerrar sesión
+            </button>
+
+        </aside>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="container_contenido">
+
+            <!-- CABECERA -->
+            <header class="container_cabecera">
+                <img
+                    src="imagenes/MESERO.png"
+                    alt="Panel Mesero"
+                    class="PanelMesero_restaurante">
+            </header>
+
+
+            <!-- ================= PEDIDOS ================= -->
+
+            <section id="pedidos" class="seccion activa">
+
+                <div class="encabezado_pedidos">
+                    <h1>Pedidos</h1>
+                    <span>♟</span>
                 </div>
 
-                <nav class="menu_opciones">
+                <p>Administra y controla los pedidos de tus clientes.</p>
 
+                <!-- RESUMEN -->
+                <div class="resumen_pedidos">
 
-                    <button class="btn_opcion activo" data-seccion="pedidos">
-                        <span>▣</span> Pedidos
+                    <div class="resumen_card">
+                        <span>Pedidos pendientes</span>
+                        <strong id="totalPendientes">0</strong>
+                    </div>
+
+                    <div class="resumen_card">
+                        <span>En preparación</span>
+                        <strong id="totalPreparacion">0</strong>
+                    </div>
+
+                    <div class="resumen_card">
+                        <span>Pedidos listos</span>
+                        <strong id="totalListos">0</strong>
+                    </div>
+
+                </div>
+
+                <!-- FILTROS -->
+                <div class="filtros_pedidos">
+
+                    <button class="filtro activo" data-filtro="todos">
+                        Todos
                     </button>
 
-                    <button class="btn_opcion" data-seccion="mesas">
-                        <span>▦</span> Mesas
+                    <button class="filtro" data-filtro="Pendiente">
+                        Pendientes
                     </button>
 
-                    <button class="btn_opcion" data-seccion="asistencia">
-                        <span>◷</span> Asistencia
+                    <button class="filtro" data-filtro="En preparación">
+                        En preparación
                     </button>
 
-                    <button class="btn_opcion" data-seccion="cuenta">
-                        <span>♙</span> Cuenta
+                    <button class="filtro" data-filtro="Listo">
+                        Listos
                     </button>
 
-                    <button class="btn_opcion" data-seccion="pagos">
-                        <span>▤</span> Pagos
+                    <button class="filtro" data-filtro="Entregado">
+                        Entregados
                     </button>
 
-                </nav>
+                </div>
 
-                <button class="btn_cerrar">Cerrar sesión</button>
+                <!-- LISTA DINÁMICA DE PEDIDOS -->
+                <div class="lista_pedidos" id="listaPedidos">
 
-            </aside>
+                    <p class="mensaje_vacio">
+                        Todavía no hay pedidos registrados.
+                    </p>
 
-            <!-- CONTENIDO PRINCIPAL -->
-            <main class="container_contenido">
+                </div>
 
-                
-                    <header  class="container_cabecera" >
-                            <img src="imagenes/MESERO.png"
-                            alt="PanelMesero_restaurante"
-                            CLASS="PanelMesero_restaurante">
-                    </header>
-                
+            </section>
 
-                <!-- PEDIDOS -->
-                <section id="pedidos" class="seccion activa" style="margin: 20px 10px 10px 10px;">
 
-                    <div class="encabezado_pedidos">
-                        <h1>Pedidos</h1>
-                        <span>♟</span>
+            <!-- ================= MESAS ================= -->
+
+            <section id="mesas" class="seccion">
+
+                <div class="encabezado_seccion">
+                    <h1>Gestión de mesas</h1>
+                    <p>Consulta la disponibilidad y administra los códigos QR.</p>
+                </div>
+
+                <!-- RESUMEN DE MESAS -->
+                <div class="resumen_mesas">
+
+                    <div class="resumen_card">
+                        <span>Disponibles</span>
+                        <strong id="mesasDisponibles">0</strong>
                     </div>
 
-                    <!-- FILTROS -->
-                    <div class="filtros_pedidos">
-                        <button class="filtro activo">Todos</button>
-                        <button class="filtro">Pendientes</button>
-                        <button class="filtro">En preparación</button>
-                        <button class="filtro">Listos</button>
+                    <div class="resumen_card">
+                        <span>Ocupadas</span>
+                        <strong id="mesasOcupadas">0</strong>
                     </div>
 
-                    <!-- LISTA DE PEDIDOS -->
-                    <div class="lista_pedidos">
-
-                        <div class="tarjeta_pedido">
-                            <div class="imagen_plato">🍝</div>
-
-                            <div class="datos_pedido">
-                                <strong>#001 - Mesa 1</strong>
-                                <span>2 platos</span>
-                            </div>
-
-                            <span class="estado pendiente">
-                                Pendiente
-                            </span>
-                        </div>
-
-                        <div class="tarjeta_pedido">
-                            <div class="imagen_plato">🥗</div>
-
-                            <div class="datos_pedido">
-                                <strong>#002 - Mesa 3</strong>
-                                <span>1 plato</span>
-                            </div>
-
-                            <span class="estado preparacion">
-                                En preparación
-                            </span>
-                        </div>
-
-                        <div class="tarjeta_pedido">
-                            <div class="imagen_plato">🍲</div>
-
-                            <div class="datos_pedido">
-                                <strong>#003 - Mesa 5</strong>
-                                <span>3 platos</span>
-                            </div>
-
-                            <span class="estado listo">
-                                Listo
-                            </span>
-                        </div>
-
+                    <div class="resumen_card">
+                        <span>Reservadas</span>
+                        <strong id="mesasReservadas">0</strong>
                     </div>
 
-                </section>
+                </div>
 
-                <!-- MESAS -->
-                <section id="mesas" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Mesas</h1>
-                    <p>Consulta las mesas disponibles y ocupadas.</p>
-                </section>
+                <!-- FILTROS DE MESAS -->
+                <div class="filtros_mesas">
 
-                <!-- ASISTENCIA -->
-                <section id="asistencia" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Asistencia</h1>
-                    <p>Consulta tu asistencia y horario.</p>
-                </section>
+                    <button class="filtro_mesa activo" data-filtro-mesa="todos">
+                        Todas
+                    </button>
 
-                
-                <!-- MI CUENTA -->
-                <section id="cuenta" class="seccion cuenta_seccion">
+                    <button class="filtro_mesa" data-filtro-mesa="disponible">
+                        Disponibles
+                    </button>
 
-                    <div class="cuenta_encabezado">
-                        <h1>Mi cuenta</h1>
-                        <p>Administra tu información personal y configuración.</p>
-                    </div>
+                    <button class="filtro_mesa" data-filtro-mesa="ocupada">
+                        Ocupadas
+                    </button>
 
-                    <!-- PERFIL -->
-                    <div class="cuenta_perfil">
+                    <button class="filtro_mesa" data-filtro-mesa="reservada">
+                        Reservadas
+                    </button>
 
-                        <div class="cuenta_foto">
-                            <img id="fotoPerfil"
-                                src="imagenes/Cliente.png"
-                                alt="Foto de perfil">
+                </div>
 
-                            <label for="cambiarFoto" class="btn_cambiar_foto">📷</label>
-                            <input type="file" id="cambiarFoto" accept="image/*" hidden>
-                        </div>
+                <!-- MESAS DINÁMICAS -->
+                <div class="lista_mesas" id="listaMesas">
 
-                        <div class="cuenta_usuario">
-                            <h2 id="nombrePerfil">Cliente</h2>
-                            <p id="correoPerfil">cliente@gmail.com</p>
-                            <span class="cuenta_activa">Cuenta activa</span>
-                        </div>
+                    <p class="mensaje_vacio">
+                        Cargando mesas...
+                    </p>
 
-                    </div>
+                </div>
 
-                    <!-- INFORMACIÓN PERSONAL -->
-                    <div class="cuenta_bloque">
+                <!-- ADMINISTRACIÓN QR -->
+                <div class="bloque_qr">
 
-                        <div class="cuenta_titulo">
-                            <h2>👤 Información personal</h2>
-                            <button type="button" id="btnEditarCuenta">Editar datos</button>
-                        </div>
+                    <h2>Códigos QR de las mesas</h2>
 
-                        <form id="formularioCuenta">
+                    <p>
+                        Cada mesa tendrá un código QR único para que
+                        los clientes puedan consultar la carta y realizar
+                        sus pedidos.
+                    </p>
 
-                            <div class="cuenta_grid">
+                    <div class="qr_controles">
 
-                                <div class="cuenta_grupo">
-                                    <label for="cuentaNombre">Nombre completo</label>
-                                    <input type="text" id="cuentaNombre"
-                                        placeholder="Tu nombre completo" required disabled>
-                                </div>
+                        <label for="seleccionarMesaQR">
+                            Seleccionar mesa
+                        </label>
 
-                                <div class="cuenta_grupo">
-                                    <label for="cuentaTelefono">Teléfono</label>
-                                    <input type="tel" id="cuentaTelefono"
-                                        placeholder="987654321" maxlength="9"
-                                        pattern="[0-9]{9}" required disabled>
-                                </div>
+                        <select id="seleccionarMesaQR">
+                            <option value="">Selecciona una mesa</option>
+                        </select>
 
-                                <div class="cuenta_grupo">
-                                    <label for="cuentaCorreo">Correo electrónico</label>
-                                    <input type="email" id="cuentaCorreo"
-                                        placeholder="correo@gmail.com" required disabled>
-                                </div>
-
-                                <div class="cuenta_grupo">
-                                    <label for="cuentaFecha">Fecha de nacimiento</label>
-                                    <input type="date" id="cuentaFecha" disabled>
-                                </div>
-
-                            </div>
-
-                            <div class="cuenta_acciones" id="accionesCuenta" hidden>
-                                <button type="button" id="btnCancelarCuenta" class="btn_cancelar">
-                                    Cancelar
-                                </button>
-
-                                <button type="submit" class="btn_guardar">
-                                    Guardar cambios
-                                </button>
-                            </div>
-
-                        </form>
-
-                    </div>
-
-                    <!-- SEGURIDAD -->
-                    <div class="cuenta_bloque">
-
-                        <div class="cuenta_titulo">
-                            <h2>🔒 Seguridad</h2>
-                        </div>
-
-                        <div class="cuenta_opcion">
-                            <div>
-                                <strong>Cambiar contraseña</strong>
-                                <p>Actualiza tu contraseña para proteger tu cuenta.</p>
-                            </div>
-
-                            <button type="button" id="btnMostrarPassword">
-                                Cambiar
-                            </button>
-                        </div>
-
-                        <form id="formularioPassword" hidden>
-
-                            <div class="cuenta_grupo">
-                                <label for="passwordActual">Contraseña actual</label>
-                                <input type="password" id="passwordActual"
-                                    placeholder="Contraseña actual" required>
-                            </div>
-
-                            <div class="cuenta_grupo">
-                                <label for="passwordNueva">Nueva contraseña</label>
-                                <input type="password" id="passwordNueva"
-                                    placeholder="Nueva contraseña" minlength="8" required>
-                            </div>
-
-                            <div class="cuenta_grupo">
-                                <label for="passwordConfirmar">Confirmar contraseña</label>
-                                <input type="password" id="passwordConfirmar"
-                                    placeholder="Repite la contraseña" minlength="8" required>
-                            </div>
-
-                            <button type="submit" class="btn_guardar">
-                                Actualizar contraseña
-                            </button>
-
-                        </form>
-
-                    </div>
-
-                    <!-- NOTIFICACIONES -->
-                    <div class="cuenta_bloque">
-
-                        <div class="cuenta_titulo">
-                            <h2>🔔 Notificaciones</h2>
-                        </div>
-
-                        <div class="cuenta_notificacion">
-                            <div>
-                                <strong>Notificaciones de pedidos</strong>
-                                <p>Recibir avisos sobre el estado de tus pedidos.</p>
-                            </div>
-
-                            <label class="interruptor">
-                                <input type="checkbox" id="notificarPedidos" checked>
-                                <span></span>
-                            </label>
-                        </div>
-
-                        <div class="cuenta_notificacion">
-                            <div>
-                                <strong>Notificaciones de reservas</strong>
-                                <p>Recibir avisos sobre tus reservaciones.</p>
-                            </div>
-
-                            <label class="interruptor">
-                                <input type="checkbox" id="notificarReservas" checked>
-                                <span></span>
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <!-- CERRAR SESIÓN -->
-                    <div class="cuenta_bloque cuenta_salida">
-
-                        <div>
-                            <h2>Cerrar sesión</h2>
-                            <p>Sal de tu cuenta de cliente.</p>
-                        </div>
-
-                        <button type="button" id="btnCerrarCuenta">
-                            Cerrar sesión
+                        <button type="button" id="btnGenerarQR">
+                            Generar código QR
                         </button>
 
                     </div>
 
-                </section>
+                    <div id="contenedorQR" class="contenedor_qr" hidden>
+
+                        <h3 id="tituloMesaQR">Código QR</h3>
+
+                        <div id="codigoQR"></div>
+
+                        <button type="button" id="btnDescargarQR">
+                            Descargar QR
+                        </button>
+
+                    </div>
+                                        <!-- RESERVAS DE CLIENTES -->
+                    <div class="bloque_reservas">
+
+                        <h2>Reservas de clientes</h2>
+
+                        <p>Consulta las solicitudes de reserva realizadas desde el Panel Cliente.</p>
+
+                        <div id="listaReservas">
+                            <p class="mensaje_vacio">
+                                No hay reservas registradas.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
 
 
-                <!-- PAGOS -->
-                <section id="pagos" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Pagos</h1>
-                    <p>Consulta los pagos de los pedidos.</p>
-                </section>
+            <!-- ================= ADMINISTRAR CARTA ================= -->
 
-            </main>
+            <section id="carta" class="seccion">
 
-        </div>
+                <div class="encabezado_seccion">
+
+                    <h1>Administrar carta</h1>
+
+                    <p>
+                        Administra los productos que visualizarán
+                        los clientes al escanear el código QR.
+                    </p>
+
+                </div>
+
+                <!-- RESUMEN DE PRODUCTOS -->
+                <div class="resumen_carta">
+
+                    <div class="resumen_card">
+                        <span>Total de productos</span>
+                        <strong id="totalProductos">0</strong>
+                    </div>
+
+                    <div class="resumen_card">
+                        <span>Disponibles</span>
+                        <strong id="productosDisponibles">0</strong>
+                    </div>
+
+                    <div class="resumen_card">
+                        <span>Agotados</span>
+                        <strong id="productosAgotados">0</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- FORMULARIO DE PRODUCTOS -->
+                <div class="bloque_carta">
+
+                    <div class="titulo_bloque_carta">
+
+                        <h2 id="tituloFormularioProducto">
+                            Agregar nuevo producto
+                        </h2>
+
+                    </div>
+
+                    <form id="formularioProducto">
+
+                        <input type="hidden" id="productoId">
+
+                        <div class="formulario_carta_grid">
+
+                            <div class="grupo_carta">
+
+                                <label for="nombreProducto">
+                                    Nombre del producto
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nombreProducto"
+                                    placeholder="Ej. Lomo saltado"
+                                    required>
+
+                            </div>
+
+
+                            <div class="grupo_carta">
+
+                                <label for="precioProducto">
+                                    Precio (S/)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="precioProducto"
+                                    placeholder="25.00"
+                                    min="0.01"
+                                    step="0.01"
+                                    required>
+
+                            </div>
+
+
+                            <div class="grupo_carta">
+
+                                <label for="categoriaProducto">
+                                    Categoría
+                                </label>
+
+                                <select id="categoriaProducto" required>
+
+                                    <option value="">
+                                        Seleccionar categoría
+                                    </option>
+
+                                    <option value="Entradas">Entradas</option>
+
+                                    <option value="Platos principales">
+                                        Platos principales
+                                    </option>
+
+                                    <option value="Bebidas">Bebidas</option>
+
+                                    <option value="Postres">Postres</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="grupo_carta">
+
+                                <label for="imagenProducto">
+                                    Imagen del producto
+                                </label>
+
+                                <input
+                                    type="file"
+                                    id="imagenProducto"
+                                    accept="image/*">
+
+                            </div>
+
+
+                            <div class="grupo_carta grupo_completo">
+
+                                <label for="descripcionProducto">
+                                    Descripción
+                                </label>
+
+                                <textarea
+                                    id="descripcionProducto"
+                                    rows="3"
+                                    placeholder="Describe los ingredientes y características del producto."
+                                    required></textarea>
+
+                            </div>
+
+
+                            <div class="grupo_carta grupo_completo">
+
+                                <label for="disponibilidadProducto">
+                                    Disponibilidad
+                                </label>
+
+                                <select id="disponibilidadProducto">
+
+                                    <option value="true">
+                                        Disponible
+                                    </option>
+
+                                    <option value="false">
+                                        Deshabilitado
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="acciones_formulario_carta">
+
+                            <button type="button"
+                                id="btnCancelarEdicion"
+                                hidden>
+                                Cancelar edición
+                            </button>
+
+                            <button type="submit" id="btnGuardarProducto">
+                                Guardar producto
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- ADMINISTRACIÓN DE CATEGORÍAS -->
+                <div class="bloque_carta">
+
+                    <h2>Administrar categorías</h2>
+
+                    <form id="formularioCategoria">
+
+                        <div class="grupo_carta">
+
+                            <label for="nombreCategoria">
+                                Nombre de la categoría
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nombreCategoria"
+                                placeholder="Ej. Comida rápida"
+                                required>
+
+                        </div>
+
+                        <button type="submit" id="btnAgregarCategoria">
+                            Agregar categoría
+                        </button>
+
+                    </form>
+
+                    <div id="listaCategorias" class="lista_categorias">
+
+                    </div>
+
+                </div>
+
+
+                <!-- FILTROS DE PRODUCTOS -->
+                <div class="bloque_productos">
+
+                    <div class="titulo_productos">
+
+                        <h2>Productos de la carta</h2>
+
+                        <input
+                            type="search"
+                            id="buscarProducto"
+                            placeholder="Buscar producto...">
+
+                    </div>
+
+
+                    <div class="filtros_carta">
+
+                        <button type="button"
+                            class="filtro_carta activo"
+                            data-filtro-producto="todos">
+                            Todos
+                        </button>
+
+                        <button type="button"
+                            class="filtro_carta"
+                            data-filtro-producto="disponibles">
+                            Disponibles
+                        </button>
+
+                        <button type="button"
+                            class="filtro_carta"
+                            data-filtro-producto="agotados">
+                            Agotados
+                        </button>
+
+                        <button type="button"
+                            class="filtro_carta"
+                            data-filtro-producto="deshabilitados">
+                            Deshabilitados
+                        </button>
+
+                    </div>
+
+
+                    <!-- CONTENEDOR DINÁMICO -->
+                    <div class="productos_administracion"
+                        id="listaProductosAdmin">
+
+                        <p class="mensaje_vacio">
+                            No hay productos registrados.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="aviso_carta">
+
+                    <strong>Actualización de la carta QR</strong>
+
+                    <p>
+                        Los cambios realizados en esta sección deberán
+                        publicarse en la carta compartida para que los
+                        clientes puedan consultar los productos y precios
+                        actualizados.
+                    </p>
+
+                    <span id="estadoSincronizacion">
+                        Pendiente de conexión con la base de datos.
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= ASISTENCIA ================= -->
+
+            <section id="asistencia" class="seccion">
+
+                <div class="encabezado_seccion">
+
+                    <h1>Mi asistencia</h1>
+
+                    <p>
+                        Registra y consulta tus horarios de trabajo.
+                    </p>
+
+                </div>
+
+
+                <div class="bloque_asistencia">
+
+                    <h2>Registro de asistencia</h2>
+
+                    <div class="reloj_asistencia">
+
+                        <strong id="relojActual">
+                            --:--:--
+                        </strong>
+
+                        <p id="fechaActual">
+                            Cargando fecha...
+                        </p>
+
+                    </div>
+
+
+                    <div class="estado_asistencia">
+
+                        <span>Estado actual:</span>
+
+                        <strong id="estadoAsistencia">
+                            Sin registrar
+                        </strong>
+
+                    </div>
+
+
+                    <div class="acciones_asistencia">
+
+                        <button type="button" id="btnRegistrarEntrada">
+                            Registrar entrada
+                        </button>
+
+                        <button type="button" id="btnRegistrarSalida" disabled>
+                            Registrar salida
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="bloque_asistencia">
+
+                    <h2>Historial de asistencia</h2>
+
+                    <div id="historialAsistencia">
+
+                        <p class="mensaje_vacio">
+                            No hay registros de asistencia.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= MI CUENTA ================= -->
+
+            <section id="cuenta" class="seccion cuenta_seccion">
+
+                <div class="cuenta_encabezado">
+
+                    <h1>Mi cuenta</h1>
+
+                    <p>
+                        Administra tu información personal y configuración.
+                    </p>
+
+                </div>
+
+
+                <!-- PERFIL -->
+                <div class="cuenta_perfil">
+
+                    <div class="cuenta_foto">
+
+                        <img
+                            id="fotoPerfil"
+                            src="imagenes/MESERO.png"
+                            alt="Foto de perfil">
+
+                        <label
+                            for="cambiarFoto"
+                            class="btn_cambiar_foto">
+                            📷
+                        </label>
+
+                        <input
+                            type="file"
+                            id="cambiarFoto"
+                            accept="image/*"
+                            hidden>
+
+                    </div>
+
+
+                    <div class="cuenta_usuario">
+
+                        <h2 id="nombrePerfil">Mesero</h2>
+
+                        <p id="correoPerfil">mesero@gmail.com</p>
+
+                        <span class="cuenta_activa">
+                            Cuenta activa
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INFORMACIÓN PERSONAL -->
+                <div class="cuenta_bloque">
+
+                    <div class="cuenta_titulo">
+
+                        <h2>👤 Información personal</h2>
+
+                        <button
+                            type="button"
+                            id="btnEditarCuenta">
+                            Editar datos
+                        </button>
+
+                    </div>
+
+
+                    <form id="formularioCuenta">
+
+                        <div class="cuenta_grid">
+
+                            <div class="cuenta_grupo">
+
+                                <label for="cuentaNombre">
+                                    Nombre completo
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="cuentaNombre"
+                                    placeholder="Nombre completo"
+                                    required
+                                    disabled>
+
+                            </div>
+
+
+                            <div class="cuenta_grupo">
+
+                                <label for="cuentaTelefono">
+                                    Teléfono
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="cuentaTelefono"
+                                    placeholder="987654321"
+                                    maxlength="9"
+                                    pattern="[0-9]{9}"
+                                    required
+                                    disabled>
+
+                            </div>
+
+
+                            <div class="cuenta_grupo">
+
+                                <label for="cuentaCorreo">
+                                    Correo electrónico
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="cuentaCorreo"
+                                    placeholder="correo@gmail.com"
+                                    required
+                                    disabled>
+
+                            </div>
+
+
+                            <div class="cuenta_grupo">
+
+                                <label for="cuentaFecha">
+                                    Fecha de nacimiento
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="cuentaFecha"
+                                    disabled>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="cuenta_acciones" id="accionesCuenta" hidden>
+
+                            <button
+                                type="button"
+                                id="btnCancelarCuenta"
+                                class="btn_cancelar">
+                                Cancelar
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="btn_guardar">
+                                Guardar cambios
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- SEGURIDAD -->
+                <div class="cuenta_bloque">
+
+                    <div class="cuenta_titulo">
+                        <h2>🔒 Seguridad</h2>
+                    </div>
+
+
+                    <div class="cuenta_opcion">
+
+                        <div>
+
+                            <strong>Cambiar contraseña</strong>
+
+                            <p>
+                                Actualiza tu contraseña para proteger tu cuenta.
+                            </p>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            id="btnMostrarPassword">
+                            Cambiar
+                        </button>
+
+                    </div>
+
+
+                    <form id="formularioPassword" hidden>
+
+                        <div class="cuenta_grupo">
+
+                            <label for="passwordActual">
+                                Contraseña actual
+                            </label>
+
+                            <input
+                                type="password"
+                                id="passwordActual"
+                                placeholder="Contraseña actual"
+                                required>
+
+                        </div>
+
+
+                        <div class="cuenta_grupo">
+
+                            <label for="passwordNueva">
+                                Nueva contraseña
+                            </label>
+
+                            <input
+                                type="password"
+                                id="passwordNueva"
+                                placeholder="Nueva contraseña"
+                                minlength="8"
+                                required>
+
+                        </div>
+
+
+                        <div class="cuenta_grupo">
+
+                            <label for="passwordConfirmar">
+                                Confirmar contraseña
+                            </label>
+
+                            <input
+                                type="password"
+                                id="passwordConfirmar"
+                                placeholder="Repite la contraseña"
+                                minlength="8"
+                                required>
+
+                        </div>
+
+
+                        <button type="submit" class="btn_guardar">
+                            Actualizar contraseña
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <!-- NOTIFICACIONES -->
+                <div class="cuenta_bloque">
+
+                    <div class="cuenta_titulo">
+                        <h2>🔔 Notificaciones</h2>
+                    </div>
+
+
+                    <div class="cuenta_notificacion">
+
+                        <div>
+
+                            <strong>Notificaciones de pedidos</strong>
+
+                            <p>
+                                Recibir avisos sobre nuevos pedidos.
+                            </p>
+
+                        </div>
+
+
+                        <label class="interruptor">
+
+                            <input
+                                type="checkbox"
+                                id="notificarPedidos"
+                                checked>
+
+                            <span></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="cuenta_notificacion">
+
+                        <div>
+
+                            <strong>Solicitudes de asistencia</strong>
+
+                            <p>
+                                Recibir avisos cuando un cliente solicite ayuda.
+                            </p>
+
+                        </div>
+
+
+                        <label class="interruptor">
+
+                            <input
+                                type="checkbox"
+                                id="notificarAsistencia"
+                                checked>
+
+                            <span></span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CERRAR SESIÓN -->
+                <div class="cuenta_bloque cuenta_salida">
+
+                    <div>
+
+                        <h2>Cerrar sesión</h2>
+
+                        <p>
+                            Sal de tu cuenta de mesero.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="btnCerrarCuenta">
+                        Cerrar sesión
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= PAGOS ================= -->
+
+            <section id="pagos" class="seccion">
+
+                <div class="encabezado_seccion">
+
+                    <h1>Pagos y cuentas</h1>
+
+                    <p>
+                        Consulta los consumos y administra los pagos
+                        de las mesas.
+                    </p>
+
+                </div>
+
+
+                <!-- RESUMEN -->
+                <div class="resumen_pagos">
+
+                    <div class="resumen_card">
+
+                        <span>Cuentas pendientes</span>
+
+                        <strong id="cuentasPendientes">0</strong>
+
+                    </div>
+
+
+                    <div class="resumen_card">
+
+                        <span>Pagos registrados</span>
+
+                        <strong id="pagosRegistrados">0</strong>
+
+                    </div>
+
+
+                    <div class="resumen_card">
+
+                        <span>Total recaudado</span>
+
+                        <strong id="totalRecaudado">S/ 0.00</strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BUSCAR CUENTA -->
+                <div class="bloque_pagos">
+
+                    <h2>Consultar cuenta por mesa</h2>
+
+                    <div class="grupo_carta">
+
+                        <label for="seleccionarMesaPago">
+                            Seleccionar mesa
+                        </label>
+
+                        <select id="seleccionarMesaPago">
+
+                            <option value="">
+                                Seleccionar mesa
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div id="detalleCuenta">
+
+                        <p class="mensaje_vacio">
+                            Selecciona una mesa para consultar su consumo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REGISTRAR PAGO -->
+                <div class="bloque_pagos">
+
+                    <h2>Registrar pago</h2>
+
+                    <form id="formularioPago">
+
+                        <div class="grupo_carta">
+
+                            <label for="metodoPago">
+                                Método de pago
+                            </label>
+
+                            <select id="metodoPago" required>
+
+                                <option value="">
+                                    Seleccionar método
+                                </option>
+
+                                <option value="Efectivo">
+                                    Efectivo
+                                </option>
+
+                                <option value="Yape">
+                                    Yape
+                                </option>
+
+                                <option value="Plin">
+                                    Plin
+                                </option>
+
+                                <option value="Tarjeta">
+                                    Tarjeta
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="grupo_carta">
+
+                            <label for="montoPago">
+                                Monto recibido (S/)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="montoPago"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="0.00"
+                                required>
+
+                        </div>
+
+
+                        <button type="submit" id="btnRegistrarPago">
+                            Registrar pago
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <!-- HISTORIAL -->
+                <div class="bloque_pagos">
+
+                    <h2>Historial de pagos</h2>
+
+                    <div id="historialPagos">
+
+                        <p class="mensaje_vacio">
+                            Todavía no hay pagos registrados.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
     </div>
 
-    <script src="Desplasamiento.js"></script>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="Desplasamiento.js"></script>
+<script src="mesero.js"></script>
 
 </body>
 </html>
