@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Cliente</title>
+    <link rel="stylesheet" href="cliente.css">
+</head>
+<body class="body">
+
+   
+       
+    <div class="container_principal">
+
+        <!-- CABECERA -->
+        <div class="container_cabecera">
+
+            <header  class="container_cabecera" >
+                <img src="imagenes/Cliente.png"
+                alt="PanelMesero_restaurante"
+                CLASS="PanelMesero_restaurante">
+            </header>
+            
+            <div class="perfil">
+                    <div class="perfil_icono">M</div>
+                    <h2>Mesero</h2>
+                    <p>Panel de atención</p>
+            </div>
+            
+        </div>
+        
+        
+        <div class="container_cuerpo">
+
+            <!-- BARRA LATERAL -->
+            <aside class="container_barra_opciones">
+
+                
+
+                <nav class="menu_opciones">
+
+
+                    <button class="btn_opcion activo" data-seccion="pedidos">
+                        <span>▣</span> Pedidos
+                    </button>
+
+                    <button class="btn_opcion" data-seccion="mesas">
+                        <span>▦</span> Mesas
+                    </button>
+
+                    <button class="btn_opcion" data-seccion="asistencia">
+                        <span>◷</span> Asistencia
+                    </button>
+
+                    <button class="btn_opcion" data-seccion="cuenta">
+                        <span>♙</span> Cuenta
+                    </button>
+
+                    <button class="btn_opcion" data-seccion="pagos">
+                        <span>▤</span> Pagos
+                    </button>
+
+                </nav>
+
+                <button class="btn_cerrar">Cerrar sesión</button>
+
+            </aside>
+
+            <!-- CONTENIDO PRINCIPAL -->
+            <main class="container_contenido">
+
+                
+                   
+                
+
+                <!-- PEDIDOS -->
+                <section id="pedidos" class="seccion activa" style="margin: 20px 10px 10px 10px;">
+
+                    <div class="encabezado_pedidos">
+                        <h1>Pedidos</h1>
+                        <span>♟</span>
+                    </div>
+
+                    <!-- FILTROS -->
+                    <div class="filtros_pedidos">
+                        <button class="filtro activo">Todos</button>
+                        <button class="filtro">Pendientes</button>
+                        <button class="filtro">En preparación</button>
+                        <button class="filtro">Listos</button>
+                    </div>
+
+                    <!-- LISTA DE PEDIDOS -->
+                    <div class="lista_pedidos">
+
+                        <div class="tarjeta_pedido">
+                            <div class="imagen_plato">🍝</div>
+
+                            <div class="datos_pedido">
+                                <strong>#001 - Mesa 1</strong>
+                                <span>2 platos</span>
+                            </div>
+
+                            <span class="estado pendiente">
+                                Pendiente
+                            </span>
+                        </div>
+
+                        <div class="tarjeta_pedido">
+                            <div class="imagen_plato">🥗</div>
+
+                            <div class="datos_pedido">
+                                <strong>#002 - Mesa 3</strong>
+                                <span>1 plato</span>
+                            </div>
+
+                            <span class="estado preparacion">
+                                En preparación
+                            </span>
+                        </div>
+
+                        <div class="tarjeta_pedido">
+                            <div class="imagen_plato">🍲</div>
+
+                            <div class="datos_pedido">
+                                <strong>#003 - Mesa 5</strong>
+                                <span>3 platos</span>
+                            </div>
+
+                            <span class="estado listo">
+                                Listo
+                            </span>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- MESAS -->
+                <section id="mesas" class="seccion" style="margin: 20px 10px 10px 10px;">
+                    <h1>Mesas</h1>
+                    <p>Consulta las mesas disponibles y ocupadas.</p>
+                </section>
+
+                <!-- ASISTENCIA -->
+                <section id="asistencia" class="seccion" style="margin: 20px 10px 10px 10px;">
+                    <h1>Asistencia</h1>
+                    <p>Consulta tu asistencia y horario.</p>
+                </section>
+
+                <!-- CUENTA -->
+                <section id="cuenta" class="seccion" style="margin: 20px 10px 10px 10px;">
+                    <h1>Mi cuenta</h1>
+                    <p>Consulta tu información personal.</p>
+                </section>
+
+                <!-- PAGOS -->
+                <section id="pagos" class="seccion" style="margin: 20px 10px 10px 10px;">
+                    <h1>Pagos</h1>
+                    <p>Consulta los pagos de los pedidos.</p>
+                </section>
+
+            </main>
+
+        </div>
+    </div>
+
+    <script src="mesero.js"></script>
+
+</body>
+</html>
