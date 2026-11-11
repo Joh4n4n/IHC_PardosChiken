@@ -141,11 +141,182 @@
                     <p>Consulta tu asistencia y horario.</p>
                 </section>
 
-                <!-- CUENTA -->
-                <section id="cuenta" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Mi cuenta</h1>
-                    <p>Consulta tu información personal.</p>
+                
+                <!-- MI CUENTA -->
+                <section id="cuenta" class="seccion cuenta_seccion">
+
+                    <div class="cuenta_encabezado">
+                        <h1>Mi cuenta</h1>
+                        <p>Administra tu información personal y configuración.</p>
+                    </div>
+
+                    <!-- PERFIL -->
+                    <div class="cuenta_perfil">
+
+                        <div class="cuenta_foto">
+                            <img id="fotoPerfil"
+                                src="imagenes/Cliente.png"
+                                alt="Foto de perfil">
+
+                            <label for="cambiarFoto" class="btn_cambiar_foto">📷</label>
+                            <input type="file" id="cambiarFoto" accept="image/*" hidden>
+                        </div>
+
+                        <div class="cuenta_usuario">
+                            <h2 id="nombrePerfil">Cliente</h2>
+                            <p id="correoPerfil">cliente@gmail.com</p>
+                            <span class="cuenta_activa">Cuenta activa</span>
+                        </div>
+
+                    </div>
+
+                    <!-- INFORMACIÓN PERSONAL -->
+                    <div class="cuenta_bloque">
+
+                        <div class="cuenta_titulo">
+                            <h2>👤 Información personal</h2>
+                            <button type="button" id="btnEditarCuenta">Editar datos</button>
+                        </div>
+
+                        <form id="formularioCuenta">
+
+                            <div class="cuenta_grid">
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaNombre">Nombre completo</label>
+                                    <input type="text" id="cuentaNombre"
+                                        placeholder="Tu nombre completo" required disabled>
+                                </div>
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaTelefono">Teléfono</label>
+                                    <input type="tel" id="cuentaTelefono"
+                                        placeholder="987654321" maxlength="9"
+                                        pattern="[0-9]{9}" required disabled>
+                                </div>
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaCorreo">Correo electrónico</label>
+                                    <input type="email" id="cuentaCorreo"
+                                        placeholder="correo@gmail.com" required disabled>
+                                </div>
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaFecha">Fecha de nacimiento</label>
+                                    <input type="date" id="cuentaFecha" disabled>
+                                </div>
+
+                            </div>
+
+                            <div class="cuenta_acciones" id="accionesCuenta" hidden>
+                                <button type="button" id="btnCancelarCuenta" class="btn_cancelar">
+                                    Cancelar
+                                </button>
+
+                                <button type="submit" class="btn_guardar">
+                                    Guardar cambios
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    <!-- SEGURIDAD -->
+                    <div class="cuenta_bloque">
+
+                        <div class="cuenta_titulo">
+                            <h2>🔒 Seguridad</h2>
+                        </div>
+
+                        <div class="cuenta_opcion">
+                            <div>
+                                <strong>Cambiar contraseña</strong>
+                                <p>Actualiza tu contraseña para proteger tu cuenta.</p>
+                            </div>
+
+                            <button type="button" id="btnMostrarPassword">
+                                Cambiar
+                            </button>
+                        </div>
+
+                        <form id="formularioPassword" hidden>
+
+                            <div class="cuenta_grupo">
+                                <label for="passwordActual">Contraseña actual</label>
+                                <input type="password" id="passwordActual"
+                                    placeholder="Contraseña actual" required>
+                            </div>
+
+                            <div class="cuenta_grupo">
+                                <label for="passwordNueva">Nueva contraseña</label>
+                                <input type="password" id="passwordNueva"
+                                    placeholder="Nueva contraseña" minlength="8" required>
+                            </div>
+
+                            <div class="cuenta_grupo">
+                                <label for="passwordConfirmar">Confirmar contraseña</label>
+                                <input type="password" id="passwordConfirmar"
+                                    placeholder="Repite la contraseña" minlength="8" required>
+                            </div>
+
+                            <button type="submit" class="btn_guardar">
+                                Actualizar contraseña
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                    <!-- NOTIFICACIONES -->
+                    <div class="cuenta_bloque">
+
+                        <div class="cuenta_titulo">
+                            <h2>🔔 Notificaciones</h2>
+                        </div>
+
+                        <div class="cuenta_notificacion">
+                            <div>
+                                <strong>Notificaciones de pedidos</strong>
+                                <p>Recibir avisos sobre el estado de tus pedidos.</p>
+                            </div>
+
+                            <label class="interruptor">
+                                <input type="checkbox" id="notificarPedidos" checked>
+                                <span></span>
+                            </label>
+                        </div>
+
+                        <div class="cuenta_notificacion">
+                            <div>
+                                <strong>Notificaciones de reservas</strong>
+                                <p>Recibir avisos sobre tus reservaciones.</p>
+                            </div>
+
+                            <label class="interruptor">
+                                <input type="checkbox" id="notificarReservas" checked>
+                                <span></span>
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <!-- CERRAR SESIÓN -->
+                    <div class="cuenta_bloque cuenta_salida">
+
+                        <div>
+                            <h2>Cerrar sesión</h2>
+                            <p>Sal de tu cuenta de cliente.</p>
+                        </div>
+
+                        <button type="button" id="btnCerrarCuenta">
+                            Cerrar sesión
+                        </button>
+
+                    </div>
+
                 </section>
+
 
                 <!-- PAGOS -->
                 <section id="pagos" class="seccion" style="margin: 20px 10px 10px 10px;">
@@ -158,7 +329,7 @@
         </div>
     </div>
 
-    <script src="mesero.js"></script>
+    <script src="Desplasamiento.js"></script>
 
 </body>
 </html>

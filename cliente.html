@@ -95,6 +95,55 @@
                                 <button class="categoria">Postres</button>
                             </div>
 
+
+                            <!-- PROGRESO DEL PEDIDO -->
+                            <div class="progreso_pedido">
+
+                                <div class="progreso_encabezado">
+                                    <div>
+                                        <h2>Seguimiento de pedido</h2>
+                                        <p>Consulta el estado de tu pedido.</p>
+                                    </div>
+                                    <span class="estado_pedido" id="estadoPedido">
+                                        En espera
+                                    </span>
+                                </div>
+
+                                <div class="progreso_barra">
+
+                                    <div class="progreso_linea">
+                                        <div class="progreso_linea_activa" id="lineaProgreso"></div>
+                                    </div>
+
+                                    <div class="progreso_pasos">
+
+                                        <div class="paso_pedido activo">
+                                            <div class="paso_icono">✓</div>
+                                            <span>Pedido realizado</span>
+                                        </div>
+
+                                        <div class="paso_pedido">
+                                            <div class="paso_icono">👨‍🍳</div>
+                                            <span>En preparación</span>
+                                        </div>
+
+                                        <div class="paso_pedido">
+                                            <div class="paso_icono">🍽️</div>
+                                            <span>Pedido listo</span>
+                                        </div>
+
+                                        <div class="paso_pedido">
+                                            <div class="paso_icono">✓</div>
+                                            <span>Entregado</span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
                             <div class="lista_comida">
 
                                 <div class="tarjeta_comida">
@@ -169,43 +218,547 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                            </div>
+                        </div>
+                    
+                </section>
 
+                            
+                <!-- MESAS -->
+                <section id="mesas" class="seccion mesas_seccion">
+
+                    <div class="mesas_encabezado">
+                        <h1>Mesas del restaurante</h1>
+                        <p>Consulta la disponibilidad y elige dónde deseas reservar.</p>
+                    </div>
+
+                    <!-- RESUMEN -->
+                    <div class="resumen_mesas">
+
+                        <div class="resumen_mesa">
+                            <span class="mesa_punto disponible"></span>
+                            <div>
+                                <strong>4</strong>
+                                <p>Disponibles</p>
                             </div>
                         </div>
 
+                        <div class="resumen_mesa">
+                            <span class="mesa_punto ocupado"></span>
+                            <div>
+                                <strong>2</strong>
+                                <p>Ocupadas</p>
+                            </div>
+                        </div>
+
+                        <div class="resumen_mesa">
+                            <span class="mesa_punto reservada"></span>
+                            <div>
+                                <strong>2</strong>
+                                <p>Reservadas</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- LEYENDA -->
+                    <div class="leyenda_mesas">
+                        <span><i class="disponible"></i> Disponible</span>
+                        <span><i class="ocupado"></i> Ocupada</span>
+                        <span><i class="reservada"></i> Reservada</span>
+                    </div>
+
+                    <!-- MAPA DE MESAS -->
+                    <div class="mapa_mesas">
+
+                        <button class="tarjeta_mesa disponible"
+                                data-numero="01" data-capacidad="2">
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 01</strong>
+                            <small>2 personas</small>
+                            <span class="mesa_estado">Disponible</span>
+                        </button>
+
+                        <button class="tarjeta_mesa ocupado" disabled>
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 02</strong>
+                            <small>4 personas</small>
+                            <span class="mesa_estado">Ocupada</span>
+                        </button>
+
+                        <button class="tarjeta_mesa disponible"
+                                data-numero="03" data-capacidad="4">
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 03</strong>
+                            <small>4 personas</small>
+                            <span class="mesa_estado">Disponible</span>
+                        </button>
+
+                        <button class="tarjeta_mesa reservada" disabled>
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 04</strong>
+                            <small>6 personas</small>
+                            <span class="mesa_estado">Reservada</span>
+                        </button>
+
+                        <button class="tarjeta_mesa disponible"
+                                data-numero="05" data-capacidad="2">
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 05</strong>
+                            <small>2 personas</small>
+                            <span class="mesa_estado">Disponible</span>
+                        </button>
+
+                        <button class="tarjeta_mesa ocupado" disabled>
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 06</strong>
+                            <small>4 personas</small>
+                            <span class="mesa_estado">Ocupada</span>
+                        </button>
+
+                        <button class="tarjeta_mesa disponible"
+                                data-numero="07" data-capacidad="6">
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 07</strong>
+                            <small>6 personas</small>
+                            <span class="mesa_estado">Disponible</span>
+                        </button>
+
+                        <button class="tarjeta_mesa reservada" disabled>
+                            <span class="mesa_icono">🪑</span>
+                            <strong>Mesa 08</strong>
+                            <small>4 personas</small>
+                            <span class="mesa_estado">Reservada</span>
+                        </button>
+
+                    </div>
+
+                    <!-- MESA SELECCIONADA -->
+                    <div class="mesa_seleccion" id="mesaSeleccion" hidden>
+                        <div>
+                            <h3>Mesa seleccionada</h3>
+                            <p id="detalleMesa">Mesa 01 - 2 personas</p>
+                        </div>
+
+                        <button type="button" id="btnReservarMesa">
+                            Continuar con reserva
+                        </button>
+                    </div>
 
                 </section>
 
-                <!-- MESAS -->
-                <section id="mesas" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Mesas</h1>
-                    <p>Consulta las mesas disponibles y ocupadas.</p>
+
+                <!-- RESERVA -->
+               
+                <section id="asistencia" class="seccion reserva_seccion">
+                    <div class="reserva_contenedor">
+
+                        <div class="reserva_encabezado">
+                            <h1>Reserva tu mesa</h1>
+                            <p>Completa los datos para reservar tu mesa en nuestro restaurante.</p>
+                        </div>
+
+                        <form class="formulario_reserva" id="formularioReserva">
+
+                            <div class="reserva_grupo">
+                                <label for="nombreReserva">Nombre completo</label>
+                                <input
+                                    type="text"
+                                    id="nombreReserva"
+                                    name="nombre"
+                                    placeholder="Ingresa tu nombre"
+                                    required
+                                >
+                            </div>
+
+                            <div class="reserva_grupo">
+                                <label for="telefonoReserva">Número de teléfono</label>
+                                <input
+                                    type="tel"
+                                    id="telefonoReserva"
+                                    name="telefono"
+                                    placeholder="Ej. 987654321"
+                                    pattern="[0-9]{9}"
+                                    maxlength="9"
+                                    required
+                                >
+                            </div>
+
+                            <div class="reserva_fila">
+
+                                <div class="reserva_grupo">
+                                    <label for="fechaReserva">Fecha</label>
+                                    <input
+                                        type="date"
+                                        id="fechaReserva"
+                                        name="fecha"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="reserva_grupo">
+                                    <label for="horaReserva">Hora</label>
+                                    <input
+                                        type="time"
+                                        id="horaReserva"
+                                        name="hora"
+                                        required
+                                    >
+                                </div>
+
+                            </div>
+
+                            <div class="reserva_grupo">
+                                <label for="personasReserva">Cantidad de personas</label>
+                                <select id="personasReserva" name="personas" required>
+                                    <option value="">Selecciona la cantidad</option>
+                                    <option value="1">1 persona</option>
+                                    <option value="2">2 personas</option>
+                                    <option value="3">3 personas</option>
+                                    <option value="4">4 personas</option>
+                                    <option value="5">5 personas</option>
+                                    <option value="6">6 personas</option>
+                                    <option value="7">7 personas</option>
+                                    <option value="8">8 personas</option>
+                                    <option value="9">9 personas</option>
+                                    <option value="10">10 personas</option>
+                                </select>
+                            </div>
+
+                            <div class="reserva_grupo">
+                                <label for="observacionesReserva">Observaciones</label>
+                                <textarea
+                                    id="observacionesReserva"
+                                    name="observaciones"
+                                    rows="4"
+                                    placeholder="¿Tienes alguna solicitud especial? (Opcional)"
+                                ></textarea>
+                            </div>
+
+                            <button type="submit" class="btn_reservar">
+                                Confirmar reserva
+                            </button>
+
+                        </form>
+
+                    </div>
                 </section>
 
-                <!-- ASISTENCIA -->
-                <section id="asistencia" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Reserva</h1>
-                    <p>Consulta tus reservas.</p>
+                
+                <!-- PEDIDOS DEL CLIENTE -->
+                <section id="Pedidos" class="seccion pedidos_cliente">
+
+                    <div class="pedidos_encabezado">
+                        <h1>Mis pedidos</h1>
+                        <p>Consulta tu mesa, tu reservación y los pedidos que realizaste.</p>
+                    </div>
+
+                    <!-- INFORMACIÓN DE LA MESA -->
+                    <div class="pedido_bloque">
+
+                        <div class="pedido_titulo">
+                            <h2>🍽️ Mi mesa</h2>
+                            <span class="pedido_estado" id="estadoMesaCliente">Sin asignar</span>
+                        </div>
+
+                        <div class="datos_mesa_cliente">
+                            <div>
+                                <span>Número de mesa</span>
+                                <strong id="miNumeroMesa">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Capacidad</span>
+                                <strong id="miCapacidadMesa">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Estado</span>
+                                <strong id="miEstadoMesa">Sin asignar</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- DATOS DE RESERVACIÓN -->
+                    <div class="pedido_bloque">
+
+                        <div class="pedido_titulo">
+                            <h2>📅 Datos de mi reservación</h2>
+                            <span class="pedido_estado" id="estadoReservacion">Sin reserva</span>
+                        </div>
+
+                        <div class="datos_reservacion">
+
+                            <div>
+                                <span>Nombre del cliente</span>
+                                <strong id="miNombre">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Teléfono</span>
+                                <strong id="miTelefono">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Fecha</span>
+                                <strong id="miFecha">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Hora</span>
+                                <strong id="miHora">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Personas</span>
+                                <strong id="miPersonas">--</strong>
+                            </div>
+
+                            <div>
+                                <span>Observaciones</span>
+                                <strong id="miObservaciones">Sin observaciones</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- MIS PEDIDOS -->
+                    <div class="pedido_bloque">
+
+                        <div class="pedido_titulo">
+                            <h2>🛍️ Mis productos</h2>
+                            <span id="cantidadProductos">0 productos</span>
+                        </div>
+
+                        <div id="listaMisPedidos" class="lista_mis_pedidos">
+
+                            <div class="pedidos_vacio">
+                                <span>🛒</span>
+                                <h3>Aún no tienes pedidos</h3>
+                                <p>Cuando agregues productos de nuestra carta, aparecerán aquí.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="pedido_total">
+                            <span>Total de mi pedido</span>
+                            <strong id="totalMisPedidos">S/ 0.00</strong>
+                        </div>
+
+                    </div>
+
+                    <!-- SEGUIMIENTO -->
+                    <div class="pedido_bloque">
+
+                        <div class="pedido_titulo">
+                            <h2>🚚 Estado de mi pedido</h2>
+                            <span class="pedido_estado" id="estadoPedidoCliente">Sin pedidos</span>
+                        </div>
+
+                        <div class="seguimiento_cliente">
+                            <p id="mensajeSeguimiento">
+                                Aquí podrás consultar el avance de tus pedidos.
+                            </p>
+                        </div>
+
+                    </div>
+
                 </section>
 
-                <!-- CUENTA -->
-                <section id="cuenta" class="seccion" style="margin: 20px 10px 10px 10px;">
-                    <h1>Mi cuenta</h1>
-                    <p>Consulta tu información personal.</p>
+
+                
+                <!-- MI CUENTA -->
+                <section id="cuenta" class="seccion cuenta_seccion">
+
+                    <div class="cuenta_encabezado">
+                        <h1>Mi cuenta</h1>
+                        <p>Administra tu información personal y configuración.</p>
+                    </div>
+
+                    <!-- PERFIL -->
+                    <div class="cuenta_perfil">
+
+                        <div class="cuenta_foto">
+                            <img id="fotoPerfil"
+                                src="imagenes/Cliente.png"
+                                alt="Foto de perfil">
+
+                            <label for="cambiarFoto" class="btn_cambiar_foto">📷</label>
+                            <input type="file" id="cambiarFoto" accept="image/*" hidden>
+                        </div>
+
+                        <div class="cuenta_usuario">
+                            <h2 id="nombrePerfil">Cliente</h2>
+                            <p id="correoPerfil">cliente@gmail.com</p>
+                            <span class="cuenta_activa">Cuenta activa</span>
+                        </div>
+
+                    </div>
+
+                    <!-- INFORMACIÓN PERSONAL -->
+                    <div class="cuenta_bloque">
+
+                        <div class="cuenta_titulo">
+                            <h2>👤 Información personal</h2>
+                            <button type="button" id="btnEditarCuenta">Editar datos</button>
+                        </div>
+
+                        <form id="formularioCuenta">
+
+                            <div class="cuenta_grid">
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaNombre">Nombre completo</label>
+                                    <input type="text" id="cuentaNombre"
+                                        placeholder="Tu nombre completo" required disabled>
+                                </div>
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaTelefono">Teléfono</label>
+                                    <input type="tel" id="cuentaTelefono"
+                                        placeholder="987654321" maxlength="9"
+                                        pattern="[0-9]{9}" required disabled>
+                                </div>
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaCorreo">Correo electrónico</label>
+                                    <input type="email" id="cuentaCorreo"
+                                        placeholder="correo@gmail.com" required disabled>
+                                </div>
+
+                                <div class="cuenta_grupo">
+                                    <label for="cuentaFecha">Fecha de nacimiento</label>
+                                    <input type="date" id="cuentaFecha" disabled>
+                                </div>
+
+                            </div>
+
+                            <div class="cuenta_acciones" id="accionesCuenta" hidden>
+                                <button type="button" id="btnCancelarCuenta" class="btn_cancelar">
+                                    Cancelar
+                                </button>
+
+                                <button type="submit" class="btn_guardar">
+                                    Guardar cambios
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    <!-- SEGURIDAD -->
+                    <div class="cuenta_bloque">
+
+                        <div class="cuenta_titulo">
+                            <h2>🔒 Seguridad</h2>
+                        </div>
+
+                        <div class="cuenta_opcion">
+                            <div>
+                                <strong>Cambiar contraseña</strong>
+                                <p>Actualiza tu contraseña para proteger tu cuenta.</p>
+                            </div>
+
+                            <button type="button" id="btnMostrarPassword">
+                                Cambiar
+                            </button>
+                        </div>
+
+                        <form id="formularioPassword" hidden>
+
+                            <div class="cuenta_grupo">
+                                <label for="passwordActual">Contraseña actual</label>
+                                <input type="password" id="passwordActual"
+                                    placeholder="Contraseña actual" required>
+                            </div>
+
+                            <div class="cuenta_grupo">
+                                <label for="passwordNueva">Nueva contraseña</label>
+                                <input type="password" id="passwordNueva"
+                                    placeholder="Nueva contraseña" minlength="8" required>
+                            </div>
+
+                            <div class="cuenta_grupo">
+                                <label for="passwordConfirmar">Confirmar contraseña</label>
+                                <input type="password" id="passwordConfirmar"
+                                    placeholder="Repite la contraseña" minlength="8" required>
+                            </div>
+
+                            <button type="submit" class="btn_guardar">
+                                Actualizar contraseña
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                    <!-- NOTIFICACIONES -->
+                    <div class="cuenta_bloque">
+
+                        <div class="cuenta_titulo">
+                            <h2>🔔 Notificaciones</h2>
+                        </div>
+
+                        <div class="cuenta_notificacion">
+                            <div>
+                                <strong>Notificaciones de pedidos</strong>
+                                <p>Recibir avisos sobre el estado de tus pedidos.</p>
+                            </div>
+
+                            <label class="interruptor">
+                                <input type="checkbox" id="notificarPedidos" checked>
+                                <span></span>
+                            </label>
+                        </div>
+
+                        <div class="cuenta_notificacion">
+                            <div>
+                                <strong>Notificaciones de reservas</strong>
+                                <p>Recibir avisos sobre tus reservaciones.</p>
+                            </div>
+
+                            <label class="interruptor">
+                                <input type="checkbox" id="notificarReservas" checked>
+                                <span></span>
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <!-- CERRAR SESIÓN -->
+                    <div class="cuenta_bloque cuenta_salida">
+
+                        <div>
+                            <h2>Cerrar sesión</h2>
+                            <p>Sal de tu cuenta de cliente.</p>
+                        </div>
+
+                        <button type="button" id="btnCerrarCuenta">
+                            Cerrar sesión
+                        </button>
+
+                    </div>
+
                 </section>
+
 
                 <!-- PAGOS -->
                 <section id="pagos" class="seccion" style="margin: 20px 10px 10px 10px;">
                     <h1>Ayuda</h1>
                     <p>Consulta la ayuda y soporte.</p>
                 </section>
-
+                
             </main>
 
         </div>
     </div>
 
-    <script src="mesero.js"></script>
+    <script src="Desplasamiento.js"></script>
+    <script src="cliente.js"></script>
 
 </body>
 </html>
